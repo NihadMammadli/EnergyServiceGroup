@@ -1,11 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Energy Service Group</title>
-</head>
-<body>
-    Test
-</body>
+    <!-- Import Montserrat font from Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+        font-family: "Montserrat", sans-serif;
+        color: #ffffff;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      .loader {
+        border: 8px solid rgba(255, 255, 255, 0.2);
+        border-top: 8px solid #00d1ff;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 20px;
+        animation: spin 1.2s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: #d0e9f7;
+        font-weight: 400;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="loader"></div>
+      <h1>Energy Service Group</h1>
+      <p>The website is under construction. Please check back soon.</p>
+    </div>
+  </body>
 </html>
