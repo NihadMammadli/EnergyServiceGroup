@@ -21,32 +21,20 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+        background: #ffffff;
         font-family: "Montserrat", sans-serif;
-        color: #ffffff;
+        color: #000000;
       }
 
       .container {
         text-align: center;
       }
 
-      .loader {
-        border: 8px solid rgba(255, 255, 255, 0.2);
-        border-top: 8px solid #00d1ff;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        margin: 0 auto 20px;
-        animation: spin 1.2s linear infinite;
-      }
-
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
+      .logo {
+        max-width: 300px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
       }
 
       h1 {
@@ -57,15 +45,13 @@
 
       p {
         font-size: 1.1rem;
-        color: #d0e9f7;
         font-weight: 400;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="loader"></div>
-      <h1>Energy Service Group</h1>
+      <img src="./image.jpeg" alt="Energy Service Group" class="logo" />
       <p>The website is under construction. Please check back soon.</p>
     </div>
   </body>
