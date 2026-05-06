@@ -1,0 +1,159 @@
+.overview {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-10);
+  margin-bottom: var(--space-16);
+}
+
+.overviewText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  height: fit-content;
+}
+
+.highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-primary-900);
+  font-weight: 500;
+}
+
+.highlights svg {
+  color: var(--color-accent-500);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Expertise */
+.expertise {
+  padding: var(--space-12) 0;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-16);
+}
+
+.expertiseGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.expertiseCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.expertiseCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.expertiseIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+}
+
+.expertiseTitle {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary-900);
+}
+
+.expertiseText {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Mission & Vision */
+.mvGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+}
+
+.mvCard {
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  position: relative;
+  overflow: hidden;
+}
+
+.mvCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--color-primary-500);
+}
+
+.mvCardAccent::after {
+  background-color: var(--color-accent-500);
+}
+
+.mvLabel {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-600);
+}
+
+.mvTitle {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary-900);
+}
+
+.mvBody {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .overview {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .expertiseGrid {
+    grid-template-columns: 1fr;
+  }
+  .mvGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,182 @@
+You are a senior frontend architect.
+
+Generate a complete React project using:
+- Vite + React + TypeScript
+- React Router DOM (latest version)
+- Modular CSS (CSS Modules)
+- Ant Design (antd) OR clean custom components where needed
+- Clean Architecture and best practices
+
+### 🎨 Design Requirements
+- Theme: Light blue + white base, with orange/gold accents
+- Modern, clean, corporate look
+- Fully responsive (desktop, tablet, mobile)
+- Consistent spacing, typography, and colors
+- Use an icon library (e.g. lucide-react or @ant-design/icons)
+
+---
+
+### 🧱 Layout Structure
+
+Create a reusable layout:
+
+- `Layout/`
+  - `MainLayout.tsx`
+  - `MainLayout.module.css`
+
+Layout must include:
+- Vertical sidebar (left)
+- Header (top)
+- Footer (bottom)
+- Main content container
+
+---
+
+### 📁 Project Structure
+src/
+assets/
+components/
+common/
+ui/
+layout/
+pages/
+Home/
+index.tsx
+index.module.css
+About/
+index.tsx
+index.module.css
+Projects/
+index.tsx
+index.module.css
+Partners/
+index.tsx
+index.module.css
+Contact/
+index.tsx
+index.module.css
+router/
+index.tsx
+App.tsx
+main.tsx
+
+---
+
+### 📌 Routing
+
+- Use `react-router-dom`
+- Centralized routing in `/router/index.tsx`
+- Wrap all pages with `MainLayout`
+- Routes:
+  - `/` → Home
+  - `/about` → About
+  - `/projects` → Projects
+  - `/partners` → Partners
+  - `/contact` → Contact
+
+---
+
+### 🧩 Components
+
+Create reusable components:
+- `Header`
+- `Sidebar` (vertical navbar)
+- `Footer`
+- `ProjectCard`
+- `SectionTitle`
+- `Container`
+
+Sidebar should:
+- Be collapsible
+- Highlight active route
+- Use icons
+
+---
+
+### 🏗️ Content (IMPORTANT)
+
+This is a **pipeline construction company**.
+
+Use the provided project data and:
+- Summarize projects professionally
+- Group them logically
+- Make text concise and corporate
+
+#### Example transformation:
+Instead of raw data:
+"450mm polyethylene pipe, 11089 meters..."
+
+Convert to:
+"Construction of a high-capacity external gas pipeline using 450mm polyethylene pipes spanning over 11 km, compliant with international standards."
+
+---
+
+### 📄 Pages Content
+
+#### Home
+- Hero section
+- Short company intro
+- Key stats (projects completed, ongoing, etc.)
+- Highlight 3–4 major projects
+
+#### About
+- Company overview
+- Expertise (pipeline construction, infrastructure, gas systems)
+- Mission & vision
+
+#### Projects
+- Grid of project cards
+- Each card:
+  - Title
+  - Short description
+  - Status (Completed / Ongoing)
+  - Timeline
+
+#### Partners
+- List of organizations (SOCAR, AFEZ, etc.)
+- Clean logo-style layout (mock logos if needed)
+
+#### Contact
+- Contact form (UI only)
+- Company address (placeholder)
+- Email / phone
+
+---
+
+### 🎯 Technical Requirements
+
+- Use functional components
+- Use hooks only
+- No inline styles (use module.css)
+- Keep components small and reusable
+- Proper typing with TypeScript
+- Clean imports (absolute paths if possible)
+
+---
+
+### 🎨 Styling Rules
+
+- Use CSS Modules everywhere
+- Naming: `componentName.module.css`
+- Use variables for colors:
+  - Primary: light blue
+  - Accent: orange/gold
+- Consistent paddings, margins, border radius
+
+---
+
+### 🚀 Bonus
+
+If possible:
+- Add simple animations (hover, transitions)
+- Add loading skeletons for project cards
+- Add responsive sidebar (hamburger on mobile)
+
+---
+
+### ⚠️ Output Format
+
+- Generate FULL project code
+- Show files clearly separated
+- No explanations, only code
+- Production-ready quality
