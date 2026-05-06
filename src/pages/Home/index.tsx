@@ -14,10 +14,10 @@ export default function HomePage() {
   const featured = projects.slice(0, 4);
 
   const stats = [
-    { icon: BadgeCheck, label: 'Projects Completed', value: completed },
-    { icon: Timer, label: 'Ongoing Projects', value: ongoing },
-    { icon: Layers, label: 'Years of Experience', value: '15+' },
-    { icon: Users, label: 'Strategic Partners', value: partners.length },
+    { icon: BadgeCheck, label: 'Tamamlanmış layihələr', value: completed },
+    { icon: Timer, label: 'Davam edən layihələr', value: ongoing },
+    { icon: Layers, label: 'İllik təcrübə', value: '15+' },
+    { icon: Users, label: 'Strateji tərəfdaşlar', value: partners.length },
   ];
 
   return (
@@ -25,25 +25,26 @@ export default function HomePage() {
       <section className={styles.hero}>
         <Container>
           <div className={styles.heroInner}>
-            <span className={styles.badge}>Pipeline · Gas Systems · Infrastructure</span>
+            <span className={styles.badge}>Boru kəmərləri · Qaz sistemləri · İnfrastruktur</span>
             <h1 className={styles.title}>
-              Engineering reliable <span className={styles.titleAccent}>energy infrastructure</span>{' '}
-              across every kilometer.
+              Hər kilometrdə{' '}
+              <span className={styles.titleAccent}>etibarlı enerji infrastrukturu</span>{' '}
+              mühəndisliyi.
             </h1>
             <p className={styles.lead}>
-              Energy Service Group designs and builds high-capacity gas pipelines,
-              distribution networks, and industrial infrastructure — delivered to
-              international standards, on schedule, and engineered to last.
+              Energy Service Group beynəlxalq standartlara uyğun, vaxtında və uzunömürlü
+              olaraq yüksək tutumlu qaz kəmərləri, paylayıcı şəbəkələr və sənaye
+              infrastrukturu layihələrini həyata keçirir.
             </p>
             <div className={styles.heroActions}>
-              <Link to="/projects" className={styles.primaryLink}>
+              <Link to="/layihelerimiz/tamamlanmis" className={styles.primaryLink}>
                 <Button variant="accent" size="lg" rightIcon={<ArrowRight size={18} />}>
-                  Explore projects
+                  Layihələrə bax
                 </Button>
               </Link>
-              <Link to="/contact" className={styles.primaryLink}>
+              <Link to="/elaqe" className={styles.primaryLink}>
                 <Button variant="outline" size="lg">
-                  Talk to our team
+                  Bizimlə əlaqə
                 </Button>
               </Link>
             </div>
@@ -71,12 +72,12 @@ export default function HomePage() {
         <Container>
           <div className={styles.featuredHeader}>
             <SectionTitle
-              eyebrow="Featured Work"
-              title="Selected pipeline & infrastructure projects"
-              description="A snapshot of recent engagements delivered for state operators, industrial clients, and free-economic zones."
+              eyebrow="Seçilmiş İşlər"
+              title="Seçilmiş boru kəməri və infrastruktur layihələri"
+              description="Dövlət operatorları, sənaye müştəriləri və azad iqtisadi zonalar üçün həyata keçirilən son layihələrimizdən nümunələr."
             />
-            <Link to="/projects" className={styles.viewAll}>
-              View all projects <ArrowRight size={16} />
+            <Link to="/layihelerimiz/tamamlanmis" className={styles.viewAll}>
+              Bütün layihələri gör <ArrowRight size={16} />
             </Link>
           </div>
           <div className={styles.cardsGrid}>

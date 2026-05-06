@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { Container } from '@/components/common/Container';
-import { navItems } from '@/components/layout/Sidebar/navItems';
 import styles from './Footer.module.css';
+
+const FOOTER_LINKS: { to: string; label: string }[] = [
+  { to: '/', label: 'Ana səhifə' },
+  { to: '/haqqimizda/melumat', label: 'Haqqımızda' },
+  { to: '/layihelerimiz/tamamlanmis', label: 'Layihələrimiz' },
+  { to: '/partnyorlar', label: 'Partnyorlar' },
+  { to: '/elaqe', label: 'Əlaqə' },
+];
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -14,15 +21,15 @@ export function Footer() {
           <div className={styles.brand}>
             <span className={styles.brandTitle}>Energy Service Group</span>
             <p className={styles.brandTagline}>
-              Pipeline construction, gas systems, and infrastructure engineering for
-              industrial and urban projects.
+              Sənaye və şəhər layihələri üçün boru kəmərinin tikintisi, qaz sistemləri
+              və infrastruktur mühəndisliyi.
             </p>
           </div>
 
           <div>
-            <h4 className={styles.heading}>Navigate</h4>
+            <h4 className={styles.heading}>Naviqasiya</h4>
             <ul className={styles.linkList}>
-              {navItems.map((item) => (
+              {FOOTER_LINKS.map((item) => (
                 <li key={item.to}>
                   <Link to={item.to} className={styles.link}>
                     {item.label}
@@ -33,11 +40,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className={styles.heading}>Contact</h4>
+            <h4 className={styles.heading}>Əlaqə</h4>
             <ul className={styles.contactList}>
               <li>
                 <MapPin size={14} aria-hidden="true" />
-                <span>Baku, Azerbaijan</span>
+                <span>Bakı, Azərbaycan</span>
               </li>
               <li>
                 <Mail size={14} aria-hidden="true" />
@@ -52,8 +59,8 @@ export function Footer() {
         </div>
 
         <div className={styles.bottom}>
-          <span>© {year} Energy Service Group. All rights reserved.</span>
-          <span className={styles.bottomMeta}>Built with care for industrial reliability.</span>
+          <span>© {year} Energy Service Group. Bütün hüquqlar qorunur.</span>
+          <span className={styles.bottomMeta}>Sənaye etibarlılığı üçün diqqətlə qurulmuşdur.</span>
         </div>
       </Container>
     </footer>

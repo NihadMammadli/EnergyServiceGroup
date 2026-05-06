@@ -5,40 +5,40 @@ import type { Project } from '@/types/project';
 export const projects: Project[] = [
   {
     id: 'eg-pe-450-trunk',
-    title: 'High-Capacity External Gas Pipeline',
+    title: 'Yüksək Tutumlu Xarici Qaz Kəməri',
     summary:
-      'Construction of a high-capacity external gas pipeline using 450 mm polyethylene pipes spanning over 11 km, fully compliant with international standards.',
+      '450 mm polietilen borulardan istifadə edərək 11 km-dən artıq uzunluqda yüksək tutumlu xarici qaz kəmərinin tikintisi — beynəlxalq standartlara tam uyğun.',
     status: 'completed',
     timeline: '2022 — 2023',
     client: 'SOCAR',
-    tags: ['Gas distribution', 'Polyethylene', 'External network'],
+    tags: ['Qaz paylama', 'Polietilen', 'Xarici şəbəkə'],
   },
   {
     id: 'eg-industrial-grid',
-    title: 'Industrial Zone Distribution Grid',
+    title: 'Sənaye Zonası Paylama Şəbəkəsi',
     summary:
-      'Engineering and installation of a medium-pressure distribution grid serving an industrial zone, including pressure regulation stations and full SCADA integration.',
+      'Sənaye zonasına xidmət edən orta təzyiqli paylama şəbəkəsinin layihələndirilməsi və quraşdırılması — təzyiq tənzimləmə stansiyaları və tam SCADA inteqrasiyası daxil olmaqla.',
     status: 'ongoing',
-    timeline: '2024 — Present',
+    timeline: '2024 — Hazırda',
     client: 'AFEZ',
-    tags: ['Distribution', 'SCADA', 'Industrial'],
+    tags: ['Paylama', 'SCADA', 'Sənaye'],
   },
   {
     id: 'eg-residential-extension',
-    title: 'Residential Network Extension',
+    title: 'Yaşayış Şəbəkəsinin Genişləndirilməsi',
     summary:
-      'Extension of an urban residential gas network across multiple districts, delivering reliable supply to thousands of households with minimal service disruption.',
+      'Şəhər yaşayış qaz şəbəkəsinin bir neçə rayon üzrə genişləndirilməsi — minlərlə evə minimum xidmət kəsintisi ilə etibarlı təchizat.',
     status: 'completed',
     timeline: '2021 — 2022',
-    tags: ['Residential', 'Urban infrastructure'],
+    tags: ['Yaşayış', 'Şəhər infrastrukturu'],
   },
   {
     id: 'eg-pumping-station',
-    title: 'Compressor & Pumping Station Modernization',
+    title: 'Kompressor və Nasos Stansiyasının Modernləşdirilməsi',
     summary:
-      'Modernization of a regional compressor and pumping station, upgrading control systems and replacing legacy mechanical assemblies to extend operational life.',
+      'Regional kompressor və nasos stansiyasının modernləşdirilməsi — idarəetmə sistemlərinin yenilənməsi və köhnə mexaniki düyünlərin əvəz edilməsi ilə əməliyyat müddətinin uzadılması.',
     status: 'ongoing',
-    timeline: '2025 — Present',
-    tags: ['Stations', 'Modernization'],
+    timeline: '2025 — Hazırda',
+    tags: ['Stansiyalar', 'Modernləşdirmə'],
   },
 ];

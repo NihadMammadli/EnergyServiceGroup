@@ -7,9 +7,9 @@ export default function PartnersPage() {
   return (
     <Container>
       <SectionTitle
-        eyebrow="Trusted by"
-        title="Our partners and clients"
-        description="We work alongside national operators, free-economic zones, and strategic energy organizations to deliver complex pipeline programs."
+        eyebrow="Etibar edirlər"
+        title="Tərəfdaşlarımız və müştərilərimiz"
+        description="Mürəkkəb boru kəməri proqramlarını həyata keçirmək üçün milli operatorlar, azad iqtisadi zonalar və strateji enerji təşkilatları ilə işləyirik."
       />
 
       <ul className={styles.grid}>

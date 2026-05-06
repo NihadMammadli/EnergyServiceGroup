@@ -21,11 +21,12 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function validate(values: FormState): Partial<Record<keyof FormState, string>> {
   const errors: Partial<Record<keyof FormState, string>> = {};
-  if (!values.name.trim()) errors.name = 'Please share your name.';
-  if (!values.email.trim()) errors.email = 'Please share your email.';
-  else if (!EMAIL_RE.test(values.email)) errors.email = 'Enter a valid email address.';
-  if (!values.subject.trim()) errors.subject = 'A short subject helps us route your inquiry.';
-  if (!values.message.trim()) errors.message = 'Tell us a little about your project.';
+  if (!values.name.trim()) errors.name = 'Adınızı yazın.';
+  if (!values.email.trim()) errors.email = 'E-poçt ünvanınızı yazın.';
+  else if (!EMAIL_RE.test(values.email)) errors.email = 'Düzgün e-poçt ünvanı daxil edin.';
+  if (!values.subject.trim())
+    errors.subject = 'Mövzunu qısaca yazın ki, sorğunuzu doğru istiqamətləndirək.';
+  if (!values.message.trim()) errors.message = 'Layihəniz haqqında qısa məlumat verin.';
   return errors;
 }
 
@@ -58,9 +59,9 @@ export default function ContactPage() {
   return (
     <Container>
       <SectionTitle
-        eyebrow="Get in touch"
-        title="Tell us about your project"
-        description="Whether you're planning a new pipeline, expanding a distribution network, or modernizing a station — we'd love to hear from you."
+        eyebrow="Əlaqə saxlayın"
+        title="Layihəniz haqqında bizə danışın"
+        description="Yeni boru kəmərinin planlaşdırılması, paylama şəbəkəsinin genişləndirilməsi və ya stansiyanın modernləşdirilməsi — sizdən eşitmək istərik."
       />
 
       <div className={styles.grid}>
@@ -68,66 +69,66 @@ export default function ContactPage() {
           {submitted && (
             <div className={styles.success} role="status">
               <CheckCircle2 size={18} aria-hidden="true" />
-              <span>Thanks — your message is on its way. We'll be in touch shortly.</span>
+              <span>Təşəkkürlər — mesajınız göndərildi. Tezliklə əlaqə saxlayacağıq.</span>
             </div>
           )}
 
           <div className={styles.row}>
             <Input
-              label="Full name"
+              label="Ad və Soyad"
               value={values.name}
               onChange={handleChange('name')}
               error={errors.name}
-              placeholder="Jane Doe"
+              placeholder="Cəmilə Əliyeva"
               required
             />
             <Input
-              label="Email address"
+              label="E-poçt ünvanı"
               type="email"
               value={values.email}
               onChange={handleChange('email')}
               error={errors.email}
-              placeholder="jane@company.com"
+              placeholder="info@numune.az"
               required
             />
           </div>
 
           <Input
-            label="Subject"
+            label="Mövzu"
             value={values.subject}
             onChange={handleChange('subject')}
             error={errors.subject}
-            placeholder="Pipeline expansion inquiry"
+            placeholder="Boru kəməri genişləndirilməsi sorğusu"
             required
           />
 
           <TextArea
-            label="Message"
+            label="Mesaj"
             value={values.message}
             onChange={handleChange('message')}
             error={errors.message}
-            placeholder="Briefly describe scope, location, and timing."
+            placeholder="Sahə, ərazi və vaxt çərçivəsi haqqında qısa məlumat verin."
             required
           />
 
           <div className={styles.actions}>
             <Button type="submit" variant="accent" rightIcon={<Send size={16} />}>
-              Send message
+              Mesaj göndər
             </Button>
-            <span className={styles.note}>We typically respond within one business day.</span>
+            <span className={styles.note}>Adətən bir iş günü ərzində cavablandırırıq.</span>
           </div>
         </form>
 
         <aside className={styles.info}>
-          <h3 className={styles.infoTitle}>Reach us directly</h3>
+          <h3 className={styles.infoTitle}>Bizimlə birbaşa əlaqə</h3>
           <ul className={styles.infoList}>
             <li>
               <span className={styles.infoIcon}>
                 <MapPin size={16} />
               </span>
               <div>
-                <span className={styles.infoLabel}>Headquarters</span>
-                <span className={styles.infoValue}>Baku, Azerbaijan</span>
+                <span className={styles.infoLabel}>Baş ofis</span>
+                <span className={styles.infoValue}>Bakı, Azərbaycan</span>
               </div>
             </li>
             <li>
@@ -135,7 +136,7 @@ export default function ContactPage() {
                 <Mail size={16} />
               </span>
               <div>
-                <span className={styles.infoLabel}>Email</span>
+                <span className={styles.infoLabel}>E-poçt</span>
                 <a href="mailto:info@energyservice.group" className={styles.infoLink}>
                   info@energyservice.group
                 </a>
@@ -146,7 +147,7 @@ export default function ContactPage() {
                 <Phone size={16} />
               </span>
               <div>
-                <span className={styles.infoLabel}>Phone</span>
+                <span className={styles.infoLabel}>Telefon</span>
                 <a href="tel:+994000000000" className={styles.infoLink}>
                   +994 00 000 00 00
                 </a>
@@ -157,16 +158,16 @@ export default function ContactPage() {
                 <Clock size={16} />
               </span>
               <div>
-                <span className={styles.infoLabel}>Hours</span>
-                <span className={styles.infoValue}>Mon — Fri · 09:00 — 18:00</span>
+                <span className={styles.infoLabel}>İş saatları</span>
+                <span className={styles.infoValue}>B.e — Cümə · 09:00 — 18:00</span>
               </div>
             </li>
           </ul>
-          <div className={styles.mapPlaceholder} role="img" aria-label="Location map placeholder">
+          <div className={styles.mapPlaceholder} role="img" aria-label="Yerləşmə xəritəsi">
             <span className={styles.mapPin}>
               <MapPin size={20} />
             </span>
-            <span>Map preview</span>
+            <span>Xəritə</span>
           </div>
         </aside>
       </div>

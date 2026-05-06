@@ -7,8 +7,8 @@ interface ProjectCardProps {
 }
 
 const STATUS_LABEL: Record<Project['status'], string> = {
-  completed: 'Completed',
-  ongoing: 'Ongoing',
+  completed: 'Tamamlanıb',
+  ongoing: 'Davam edir',
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {

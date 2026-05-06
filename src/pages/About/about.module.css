@@ -40,7 +40,6 @@
   margin-top: 2px;
 }
 
-/* Expertise */
 .expertise {
   padding: var(--space-12) 0;
   background-color: var(--color-surface);
@@ -93,7 +92,6 @@
   line-height: 1.6;
 }
 
-/* Mission & Vision */
 .mvGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -143,6 +141,78 @@
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   line-height: 1.6;
+}
+
+/* Document grid (used by Lisenziyalar / Sertifikatlar) */
+.docGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-5);
+}
+
+.docCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.docCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary-200);
+}
+
+.docHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.docIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+}
+
+.docNumber {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.docTitle {
+  font-size: var(--font-size-md);
+  color: var(--color-primary-900);
+  font-weight: 600;
+}
+
+.docMeta {
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.docMetaAccent {
+  color: var(--color-accent-600);
+  font-weight: 600;
 }
 
 @media (max-width: 900px) {
