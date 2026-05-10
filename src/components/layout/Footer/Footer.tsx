@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { MapPin, Phone } from 'lucide-react';
 import { Container } from '@/components/common/Container';
 import styles from './Footer.module.css';
 
@@ -19,11 +19,12 @@ export function Footer() {
       <Container>
         <div className={styles.grid}>
           <div className={styles.brand}>
-            <span className={styles.brandTitle}>Energy Service Group</span>
+            <span className={styles.brandTitle}>"Energy Service Group" MMC</span>
             <p className={styles.brandTagline}>
-              Sənaye və şəhər layihələri üçün boru kəmərinin tikintisi, qaz sistemləri
-              və infrastruktur mühəndisliyi.
+              Magistral qaz kəmərləri, polietilen şəbəkələr, içməli su və elektrik
+              təchizatı xətləri, sənaye və yaşayış obyektlərinin tikinti-quraşdırma işləri.
             </p>
+            <span className={styles.brandTagline}>VÖEN: 1404206411</span>
           </div>
 
           <div>
@@ -44,23 +45,19 @@ export function Footer() {
             <ul className={styles.contactList}>
               <li>
                 <MapPin size={14} aria-hidden="true" />
-                <span>Bakı, Azərbaycan</span>
-              </li>
-              <li>
-                <Mail size={14} aria-hidden="true" />
-                <a href="mailto:info@energyservice.group">info@energyservice.group</a>
+                <span>Abşeron rayonu, Saray ŞTQ, Polad Həşimov küç. 409</span>
               </li>
               <li>
                 <Phone size={14} aria-hidden="true" />
-                <a href="tel:+994000000000">+994 00 000 00 00</a>
+                <a href="tel:+994502118829">(050) 211 88 29</a>
               </li>
             </ul>
           </div>
         </div>
 
         <div className={styles.bottom}>
-          <span>© {year} Energy Service Group. Bütün hüquqlar qorunur.</span>
-          <span className={styles.bottomMeta}>Sənaye etibarlılığı üçün diqqətlə qurulmuşdur.</span>
+          <span>© {year} "Energy Service Group" MMC. Bütün hüquqlar qorunur.</span>
+          <span className={styles.bottomMeta}>Direktor: N.B. Abbasov</span>
         </div>
       </Container>
     </footer>

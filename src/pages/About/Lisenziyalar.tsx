@@ -1,42 +1,10 @@
-import { FileText } from 'lucide-react';
+import { FileText, Download } from 'lucide-react';
 import { Container } from '@/components/common/Container';
 import { SectionTitle } from '@/components/common/SectionTitle';
+import { Button } from '@/components/ui/Button';
 import styles from './about.module.css';
 
-interface LicenseEntry {
-  number: string;
-  title: string;
-  authority: string;
-  validUntil: string;
-}
-
-// TODO: replace with real licenses when available.
-const licenses: LicenseEntry[] = [
-  {
-    number: 'LIS-001',
-    title: 'Boru kəmərinin tikintisi və quraşdırılması',
-    authority: 'Energetika Nazirliyi',
-    validUntil: 'Müddətsiz',
-  },
-  {
-    number: 'LIS-002',
-    title: 'Qaz paylama şəbəkələrinin layihələndirilməsi',
-    authority: 'Fövqəladə Hallar Nazirliyi',
-    validUntil: '2028',
-  },
-  {
-    number: 'LIS-003',
-    title: 'Yüksək təzyiqli sistemlərin istismarı',
-    authority: 'Sənaye və Texniki Təhlükəsizlik Agentliyi',
-    validUntil: '2027',
-  },
-  {
-    number: 'LIS-004',
-    title: 'Tikinti-quraşdırma işlərinin aparılması',
-    authority: 'Şəhərsalma və Tikinti Komitəsi',
-    validUntil: 'Müddətsiz',
-  },
-];
+const LICENSE_FILE = '/ESG Lisenziyalar.pdf';
 
 export default function LisenziyalarPage() {
   return (
@@ -44,25 +12,32 @@ export default function LisenziyalarPage() {
       <SectionTitle
         eyebrow="Sənədlərimiz"
         title="Lisenziyalarımız"
-        description="Bütün layihələrimizdə tam yasal uyğunluğu təmin edən etibarlı dövlət lisenziyalarına sahibik."
+        description='"Energy Service Group" MMC tərəfindən aparılan tikinti, qaz və infrastruktur işlərinin qanuni əsasını təşkil edən rəsmi dövlət lisenziyaları.'
       />
-      <div className={styles.docGrid}>
-        {licenses.map((license) => (
-          <article key={license.number} className={styles.docCard}>
-            <div className={styles.docHeader}>
-              <span className={styles.docIcon}>
-                <FileText size={20} />
-              </span>
-              <span className={styles.docNumber}>{license.number}</span>
-            </div>
-            <h3 className={styles.docTitle}>{license.title}</h3>
-            <p className={styles.expertiseText}>{license.authority}</p>
-            <div className={styles.docMeta}>
-              <span>Etibarlılıq</span>
-              <span className={styles.docMetaAccent}>{license.validUntil}</span>
-            </div>
-          </article>
-        ))}
+
+      <div className={styles.licenseHero}>
+        <div className={styles.licenseHeroLeft}>
+          <span className={styles.docIcon}>
+            <FileText size={22} />
+          </span>
+          <div>
+            <h3 className={styles.docTitle}>"Energy Service Group" MMC — Lisenziyalar paketi</h3>
+            <p className={styles.expertiseText}>
+              Şirkətin fəaliyyət göstərdiyi sahələr üzrə bütün lisenziyalar tək sənəddə
+              toplanmışdır. Tam siyahı və tarixləri görmək üçün PDF-i açın və ya yükləyin.
+            </p>
+          </div>
+        </div>
+        <a
+          href={encodeURI(LICENSE_FILE)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.licenseLink}
+        >
+          <Button variant="accent" rightIcon={<Download size={16} />}>
+            Lisenziyaları aç (PDF)
+          </Button>
+        </a>
       </div>
     </Container>
   );

@@ -16,7 +16,7 @@ export default function HomePage() {
   const stats = [
     { icon: BadgeCheck, label: 'Tamamlanmış layihələr', value: completed },
     { icon: Timer, label: 'Davam edən layihələr', value: ongoing },
-    { icon: Layers, label: 'İllik təcrübə', value: '15+' },
+    { icon: Layers, label: 'Ümumi layihələr', value: projects.length },
     { icon: Users, label: 'Strateji tərəfdaşlar', value: partners.length },
   ];
 
@@ -25,16 +25,16 @@ export default function HomePage() {
       <section className={styles.hero}>
         <Container>
           <div className={styles.heroInner}>
-            <span className={styles.badge}>Boru kəmərləri · Qaz sistemləri · İnfrastruktur</span>
+            <span className={styles.badge}>Qaz kəmərləri · Su xətləri · Tikinti-quraşdırma</span>
             <h1 className={styles.title}>
-              Hər kilometrdə{' '}
-              <span className={styles.titleAccent}>etibarlı enerji infrastrukturu</span>{' '}
-              mühəndisliyi.
+              Magistral qaz kəmərlərindən{' '}
+              <span className={styles.titleAccent}>aeroport infrastrukturuna</span>{' '}
+              qədər etibarlı mühəndislik.
             </h1>
             <p className={styles.lead}>
-              Energy Service Group beynəlxalq standartlara uyğun, vaxtında və uzunömürlü
-              olaraq yüksək tutumlu qaz kəmərləri, paylayıcı şəbəkələr və sənaye
-              infrastrukturu layihələrini həyata keçirir.
+              Energy Service Group MMC SOCAR, AFEZ, MİDA və digər tərəfdaşların layihələrində
+              magistral qaz kəmərləri, polietilen şəbəkələr, içməli su və elektrik təchizatı
+              xətlərini beynəlxalq standartlara uyğun olaraq icra edir.
             </p>
             <div className={styles.heroActions}>
               <Link to="/layihelerimiz/tamamlanmis" className={styles.primaryLink}>

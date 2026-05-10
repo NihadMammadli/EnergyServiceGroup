@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
-import { CheckCircle2, Clock, Mail, MapPin, Phone, Send } from 'lucide-react';
+import { CheckCircle2, Clock, MapPin, Phone, Send } from 'lucide-react';
 import { Container } from '@/components/common/Container';
 import { SectionTitle } from '@/components/common/SectionTitle';
 import { Button } from '@/components/ui/Button';
@@ -127,19 +127,10 @@ export default function ContactPage() {
                 <MapPin size={16} />
               </span>
               <div>
-                <span className={styles.infoLabel}>Baş ofis</span>
-                <span className={styles.infoValue}>Bakı, Azərbaycan</span>
-              </div>
-            </li>
-            <li>
-              <span className={styles.infoIcon}>
-                <Mail size={16} />
-              </span>
-              <div>
-                <span className={styles.infoLabel}>E-poçt</span>
-                <a href="mailto:info@energyservice.group" className={styles.infoLink}>
-                  info@energyservice.group
-                </a>
+                <span className={styles.infoLabel}>Ünvan</span>
+                <span className={styles.infoValue}>
+                  Abşeron rayonu, Saray ŞTQ, Polad Həşimov küç. 409
+                </span>
               </div>
             </li>
             <li>
@@ -148,8 +139,8 @@ export default function ContactPage() {
               </span>
               <div>
                 <span className={styles.infoLabel}>Telefon</span>
-                <a href="tel:+994000000000" className={styles.infoLink}>
-                  +994 00 000 00 00
+                <a href="tel:+994502118829" className={styles.infoLink}>
+                  (050) 211 88 29
                 </a>
               </div>
             </li>
@@ -160,6 +151,15 @@ export default function ContactPage() {
               <div>
                 <span className={styles.infoLabel}>İş saatları</span>
                 <span className={styles.infoValue}>B.e — Cümə · 09:00 — 18:00</span>
+              </div>
+            </li>
+            <li>
+              <span className={styles.infoIcon}>
+                <MapPin size={16} />
+              </span>
+              <div>
+                <span className={styles.infoLabel}>VÖEN</span>
+                <span className={styles.infoValue}>1404206411</span>
               </div>
             </li>
           </ul>

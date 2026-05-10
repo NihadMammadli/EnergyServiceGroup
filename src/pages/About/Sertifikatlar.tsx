@@ -1,4 +1,4 @@
-import { Award } from 'lucide-react';
+import { Award, ExternalLink } from 'lucide-react';
 import { Container } from '@/components/common/Container';
 import { SectionTitle } from '@/components/common/SectionTitle';
 import styles from './about.module.css';
@@ -8,45 +8,37 @@ interface CertificateEntry {
   title: string;
   issuer: string;
   year: string;
+  file: string;
 }
 
-// TODO: replace with real certificates when available.
 const certificates: CertificateEntry[] = [
   {
-    code: 'ISO 9001',
+    code: 'ISO 9001:2015',
     title: 'Keyfiyyət İdarəetmə Sistemi',
     issuer: 'Beynəlxalq Standartlaşdırma Təşkilatı',
-    year: '2024',
+    year: '2015',
+    file: '/ISO 9001-2015.PDF',
   },
   {
-    code: 'ISO 14001',
-    title: 'Ətraf Mühitin İdarə Edilməsi',
+    code: 'ISO 14001:2015',
+    title: 'Ətraf Mühitin İdarəetmə Sistemi',
     issuer: 'Beynəlxalq Standartlaşdırma Təşkilatı',
-    year: '2024',
+    year: '2015',
+    file: '/ISO 14001-2015.PDF',
   },
   {
-    code: 'ISO 45001',
-    title: 'Əməyin Təhlükəsizliyi və Sağlamlıq',
+    code: 'ISO 45001:2018',
+    title: 'Əməyin Mühafizəsi və Təhlükəsizliyinin İdarəetmə Sistemi',
     issuer: 'Beynəlxalq Standartlaşdırma Təşkilatı',
-    year: '2024',
+    year: '2018',
+    file: '/ISO 45001 - 2018.PDF',
   },
   {
-    code: 'API 1104',
-    title: 'Boru kəmərlərinin qaynaqlanması üzrə uyğunluq',
-    issuer: 'American Petroleum Institute',
-    year: '2023',
-  },
-  {
-    code: 'EN 12732',
-    title: 'Qaz təchizatı sistemləri — qaynaq',
-    issuer: 'Avropa Standartlaşdırma Komitəsi',
-    year: '2023',
-  },
-  {
-    code: 'OHSAS',
-    title: 'Sahə təhlükəsizliyi üzrə təlim sertifikatı',
-    issuer: 'Daxili Təlim Mərkəzi',
-    year: '2024',
+    code: 'ISO 10002:2018',
+    title: 'Müştəri Məmnuniyyəti və Şikayətlərin İdarəetmə Sistemi',
+    issuer: 'Beynəlxalq Standartlaşdırma Təşkilatı',
+    year: '2018',
+    file: '/ISO 10002 -2018.PDF',
   },
 ];
 
@@ -56,24 +48,35 @@ export default function SertifikatlarPage() {
       <SectionTitle
         eyebrow="Standartlar"
         title="Sertifikatlarımız"
-        description="Beynəlxalq və yerli standartlara uyğunluğumuzu təsdiqləyən sertifikatlar — keyfiyyət, ətraf mühit və əməyin təhlükəsizliyi sahələrində."
+        description="Beynəlxalq standartlara uyğunluğumuzu təsdiqləyən sertifikatlar — keyfiyyət, ətraf mühit, əməyin təhlükəsizliyi və müştəri məmnuniyyəti üzrə."
       />
       <div className={styles.docGrid}>
         {certificates.map((cert) => (
-          <article key={cert.code} className={styles.docCard}>
-            <div className={styles.docHeader}>
-              <span className={styles.docIcon}>
-                <Award size={20} />
-              </span>
-              <span className={styles.docNumber}>{cert.code}</span>
-            </div>
-            <h3 className={styles.docTitle}>{cert.title}</h3>
-            <p className={styles.expertiseText}>{cert.issuer}</p>
-            <div className={styles.docMeta}>
-              <span>Verilmə ili</span>
-              <span className={styles.docMetaAccent}>{cert.year}</span>
-            </div>
-          </article>
+          <a
+            key={cert.code}
+            href={encodeURI(cert.file)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.docCardLink}
+          >
+            <article className={styles.docCard}>
+              <div className={styles.docHeader}>
+                <span className={styles.docIcon}>
+                  <Award size={20} />
+                </span>
+                <span className={styles.docNumber}>{cert.code}</span>
+              </div>
+              <h3 className={styles.docTitle}>{cert.title}</h3>
+              <p className={styles.expertiseText}>{cert.issuer}</p>
+              <div className={styles.docMeta}>
+                <span>Verilmə ili</span>
+                <span className={styles.docMetaAccent}>
+                  {cert.year}
+                  <ExternalLink size={12} aria-hidden="true" style={{ marginLeft: 6 }} />
+                </span>
+              </div>
+            </article>
+          </a>
         ))}
       </div>
     </Container>

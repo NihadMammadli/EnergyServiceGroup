@@ -82,12 +82,7 @@ export function Header() {
               const childActive = location.pathname.startsWith(item.basePath);
 
               return (
-                <div
-                  key={item.key}
-                  className={styles.dropdown}
-                  onMouseEnter={() => setOpenKey(item.key)}
-                  onMouseLeave={() => setOpenKey((k) => (k === item.key ? null : k))}
-                >
+                <div key={item.key} className={styles.dropdown}>
                   <button
                     type="button"
                     className={[styles.navLink, childActive ? styles.active : ''].join(' ')}

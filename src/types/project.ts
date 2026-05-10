@@ -7,5 +7,8 @@ export interface Project {
   status: ProjectStatus;
   timeline: string;
   client?: string;
+  contract?: string;
+  progress?: string;
   tags?: string[];
+  image?: string;
 }
