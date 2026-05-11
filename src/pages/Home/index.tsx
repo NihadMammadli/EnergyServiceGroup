@@ -3,7 +3,9 @@ import { ArrowRight, BadgeCheck, Layers, Timer, Users } from 'lucide-react';
 import { Container } from '@/components/common/Container';
 import { SectionTitle } from '@/components/common/SectionTitle';
 import { ProjectCard } from '@/components/common/ProjectCard';
+import { Reveal } from '@/components/common/Reveal';
 import { Button } from '@/components/ui/Button';
+import { useReveal } from '@/hooks/useReveal';
 import { projects } from '@/data/projects';
 import { partners } from '@/data/partners';
 import styles from './index.module.css';
@@ -19,6 +21,9 @@ export default function HomePage() {
     { icon: Layers, label: 'Ümumi layihələr', value: projects.length },
     { icon: Users, label: 'Strateji tərəfdaşlar', value: partners.length },
   ];
+
+  const statsStagger = useReveal<HTMLUListElement>({ stagger: true, direction: 'up' });
+  const cardsStagger = useReveal<HTMLDivElement>({ stagger: true, direction: 'up' });
 
   return (
     <>
@@ -54,7 +59,10 @@ export default function HomePage() {
 
       <section className={styles.statsSection}>
         <Container>
-          <ul className={styles.statsGrid}>
+          <ul
+            ref={statsStagger.ref}
+            className={[styles.statsGrid, statsStagger.className].join(' ')}
+          >
             {stats.map(({ icon: Icon, label, value }) => (
               <li key={label} className={styles.statCard}>
                 <span className={styles.statIcon}>
@@ -71,16 +79,21 @@ export default function HomePage() {
       <section className={styles.featured}>
         <Container>
           <div className={styles.featuredHeader}>
-            <SectionTitle
-              eyebrow="Seçilmiş İşlər"
-              title="Seçilmiş boru kəməri və infrastruktur layihələri"
-              description="Dövlət operatorları, sənaye müştəriləri və azad iqtisadi zonalar üçün həyata keçirilən son layihələrimizdən nümunələr."
-            />
+            <Reveal direction="up">
+              <SectionTitle
+                eyebrow="Seçilmiş İşlər"
+                title="Seçilmiş boru kəməri və infrastruktur layihələri"
+                description="Dövlət operatorları, sənaye müştəriləri və azad iqtisadi zonalar üçün həyata keçirilən son layihələrimizdən nümunələr."
+              />
+            </Reveal>
             <Link to="/layihelerimiz/tamamlanmis" className={styles.viewAll}>
               Bütün layihələri gör <ArrowRight size={16} />
             </Link>
           </div>
-          <div className={styles.cardsGrid}>
+          <div
+            ref={cardsStagger.ref}
+            className={[styles.cardsGrid, cardsStagger.className].join(' ')}
+          >
             {featured.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}

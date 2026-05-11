@@ -1,0 +1,180 @@
+/* Global animation utilities — used by useReveal / Reveal component
+   and the page-transition wrapper in MainLayout.                    */
+
+/* Reveal: hidden until .in is added by IntersectionObserver */
+.reveal {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.up {
+  transform: translateY(28px);
+}
+.reveal.down {
+  transform: translateY(-28px);
+}
+.reveal.left {
+  transform: translateX(-36px);
+}
+.reveal.right {
+  transform: translateX(36px);
+}
+.reveal.zoom {
+  transform: scale(0.94);
+}
+.reveal.fade {
+  transform: none;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger: parent gets the class; children animate in sequence via nth-child.
+   Works with any markup (ul/li, div/div, etc.) since no wrapping is required.   */
+.stagger > * {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.stagger.up > * {
+  transform: translateY(28px);
+}
+.stagger.down > * {
+  transform: translateY(-28px);
+}
+.stagger.left > * {
+  transform: translateX(-36px);
+}
+.stagger.right > * {
+  transform: translateX(36px);
+}
+.stagger.zoom > * {
+  transform: scale(0.94);
+}
+.stagger.fade > * {
+  transform: none;
+}
+
+.stagger.in > * {
+  opacity: 1;
+  transform: none;
+}
+
+.stagger > *:nth-child(1)  { transition-delay:  60ms; }
+.stagger > *:nth-child(2)  { transition-delay: 120ms; }
+.stagger > *:nth-child(3)  { transition-delay: 180ms; }
+.stagger > *:nth-child(4)  { transition-delay: 240ms; }
+.stagger > *:nth-child(5)  { transition-delay: 300ms; }
+.stagger > *:nth-child(6)  { transition-delay: 360ms; }
+.stagger > *:nth-child(7)  { transition-delay: 420ms; }
+.stagger > *:nth-child(8)  { transition-delay: 480ms; }
+.stagger > *:nth-child(9)  { transition-delay: 540ms; }
+.stagger > *:nth-child(10) { transition-delay: 600ms; }
+.stagger > *:nth-child(11) { transition-delay: 660ms; }
+.stagger > *:nth-child(12) { transition-delay: 720ms; }
+.stagger > *:nth-child(n+13) { transition-delay: 800ms; }
+
+/* Mount-based stagger: animation (not transition) so it replays whenever
+   the children are (re)mounted — useful after a loading state finishes. */
+@keyframes stagMountUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes stagMountLeft {
+  from { opacity: 0; transform: translateX(-36px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes stagMountRight {
+  from { opacity: 0; transform: translateX(36px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes stagMountZoom {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: none; }
+}
+
+.stagger-mount > * {
+  opacity: 0;
+  animation-duration: 700ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+  animation-name: stagMountUp;
+}
+.stagger-mount.up > *    { animation-name: stagMountUp; }
+.stagger-mount.left > *  { animation-name: stagMountLeft; }
+.stagger-mount.right > * { animation-name: stagMountRight; }
+.stagger-mount.zoom > *  { animation-name: stagMountZoom; }
+
+.stagger-mount > *:nth-child(1)  { animation-delay:  60ms; }
+.stagger-mount > *:nth-child(2)  { animation-delay: 120ms; }
+.stagger-mount > *:nth-child(3)  { animation-delay: 180ms; }
+.stagger-mount > *:nth-child(4)  { animation-delay: 240ms; }
+.stagger-mount > *:nth-child(5)  { animation-delay: 300ms; }
+.stagger-mount > *:nth-child(6)  { animation-delay: 360ms; }
+.stagger-mount > *:nth-child(7)  { animation-delay: 420ms; }
+.stagger-mount > *:nth-child(8)  { animation-delay: 480ms; }
+.stagger-mount > *:nth-child(9)  { animation-delay: 540ms; }
+.stagger-mount > *:nth-child(10) { animation-delay: 600ms; }
+.stagger-mount > *:nth-child(11) { animation-delay: 660ms; }
+.stagger-mount > *:nth-child(12) { animation-delay: 720ms; }
+.stagger-mount > *:nth-child(n+13) { animation-delay: 800ms; }
+
+/* Page-level enter animation — replayed on every route change via key */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.page-enter {
+  animation: pageEnter 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Reusable hero rise animation (currently used on Home hero) */
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-rise {
+  animation: heroRise 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.up,
+  .reveal.down,
+  .reveal.left,
+  .reveal.right,
+  .reveal.zoom,
+  .stagger > *,
+  .stagger-mount > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  .page-enter,
+  .hero-rise {
+    animation: none !important;
+  }
+}

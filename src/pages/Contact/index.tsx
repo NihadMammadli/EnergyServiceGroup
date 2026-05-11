@@ -3,6 +3,7 @@ import type { FormEvent } from 'react';
 import { CheckCircle2, Clock, MapPin, Phone, Send } from 'lucide-react';
 import { Container } from '@/components/common/Container';
 import { SectionTitle } from '@/components/common/SectionTitle';
+import { Reveal } from '@/components/common/Reveal';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { TextArea } from '@/components/ui/TextArea';
@@ -58,13 +59,16 @@ export default function ContactPage() {
 
   return (
     <Container>
-      <SectionTitle
-        eyebrow="Əlaqə saxlayın"
-        title="Layihəniz haqqında bizə danışın"
-        description="Yeni boru kəmərinin planlaşdırılması, paylama şəbəkəsinin genişləndirilməsi və ya stansiyanın modernləşdirilməsi — sizdən eşitmək istərik."
-      />
+      <Reveal direction="up">
+        <SectionTitle
+          eyebrow="Əlaqə saxlayın"
+          title="Layihəniz haqqında bizə danışın"
+          description="Yeni boru kəmərinin planlaşdırılması, paylama şəbəkəsinin genişləndirilməsi və ya stansiyanın modernləşdirilməsi — sizdən eşitmək istərik."
+        />
+      </Reveal>
 
       <div className={styles.grid}>
+        <Reveal direction="left" duration={800}>
         <form className={styles.form} onSubmit={handleSubmit} noValidate>
           {submitted && (
             <div className={styles.success} role="status">
@@ -118,7 +122,9 @@ export default function ContactPage() {
             <span className={styles.note}>Adətən bir iş günü ərzində cavablandırırıq.</span>
           </div>
         </form>
+        </Reveal>
 
+        <Reveal direction="right" duration={800} delay={120}>
         <aside className={styles.info}>
           <h3 className={styles.infoTitle}>Bizimlə birbaşa əlaqə</h3>
           <ul className={styles.infoList}>
@@ -170,6 +176,7 @@ export default function ContactPage() {
             <span>Xəritə</span>
           </div>
         </aside>
+        </Reveal>
       </div>
     </Container>
   );
