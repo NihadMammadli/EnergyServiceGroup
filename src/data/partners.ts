@@ -3,55 +3,50 @@ export interface Partner {
   name: string;
   initials: string;
   description?: string;
+  url?: string;
+  /** Path to the partner logo (e.g. "/partners/socar.png"). Falls back to initials. */
+  logo?: string;
 }
 
 export const partners: Partner[] = [
   {
     id: 'socar',
-    name: 'ARDNŞ (SOCAR) — "Qaz İxrac" İdarəsi',
+    name: 'SOCAR',
     initials: 'SO',
-    description: 'Magistral qaz kəmərlərinin yenidən qurulması üzrə tərəfdaş',
+    description: 'Azərbaycan Respublikası Dövlət Neft Şirkəti',
+    url: 'https://socar.az/',
+    logo: '',
   },
   {
     id: 'afez',
     name: 'AFEZ',
     initials: 'AF',
     description: 'Ələt Azad İqtisadi Zonası',
-  },
-  {
-    id: 'sw-afezco',
-    name: 'SW AFEZCO',
-    initials: 'SW',
-    description: 'Ələt Karqo Aeroport infrastruktur layihələri üzrə əsas tərəfdaş',
+    url: 'https://afez.az/',
+    logo: '',
   },
   {
     id: 'mida',
     name: 'MİDA',
     initials: 'MD',
-    description: 'Yaşayış kompleksləri üzrə qaz xətti tərəfdaşı',
+    description: 'Mənzil İnşaatı Dövlət Agentliyi',
+    url: 'https://mida.gov.az/',
+    logo: '',
   },
   {
-    id: 'as-insaat',
-    name: '"AS İNŞAAT" MMC',
+    id: 'as-group',
+    name: 'AS Group',
     initials: 'AS',
-    description: 'Zəngilan Ağalı kəndlərində tikinti və infrastruktur layihələri',
+    description: 'Tikinti və infrastruktur tərəfdaşı',
+    url: 'https://asgroup.az/',
+    logo: '',
   },
   {
-    id: 'nd-company',
-    name: '"ND COMPANY" MMC',
-    initials: 'ND',
-    description: 'Horadiz–Cəbrayıl qaz kəməri üzrə podrat tərəfdaşı',
-  },
-  {
-    id: 'caspian-railroad',
-    name: '"CASPIAN RAILROAD COMPANY" MMC',
-    initials: 'CR',
-    description: 'Sumqayıt anqar və SOCAR Karbamid yükləmə binası tərəfdaşı',
-  },
-  {
-    id: 'dovlet-komitesi',
-    name: 'Qaçqın və Məcburi Köçkünlər üzrə Dövlət Komitəsi',
-    initials: 'DK',
-    description: 'Sosial obyektlərin təmir-bərpa işləri üzrə tərəfdaş',
+    id: 'silkway-group',
+    name: 'Silkway Group',
+    initials: 'SW',
+    description: 'Logistika və infrastruktur tərəfdaşı',
+    url: 'https://www.silkwaygroup.com/',
+    logo: '',
   },
 ];
