@@ -11,7 +11,15 @@ export function Header() {
   const [openKey, setOpenKey] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMobileGroup, setOpenMobileGroup] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     function onMouseDown(e: MouseEvent) {
@@ -53,7 +61,9 @@ export function Header() {
 
   return (
     <>
-      <header className={styles.header}>
+      <header
+        className={[styles.header, scrolled || mobileOpen ? styles.headerSolid : ''].join(' ')}
+      >
         <Container>
           <div className={styles.bar}>
             <Link to="/" className={styles.brand} aria-label="Ana səhifə">

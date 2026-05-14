@@ -1,49 +1,53 @@
 :root {
-  /* ── Brand palette (Damla-Group inspired) ─────────────── */
-  /* Primary navy — kept as primary scale so existing tokens still work */
-  --color-primary-50:  #f1f3f7;
-  --color-primary-100: #d8dde7;
-  --color-primary-200: #b6bfcf;
-  --color-primary-400: #5a6680;
-  --color-primary-500: #343d52;
-  --color-primary-600: #2a3245;
-  --color-primary-700: #1c2438;
-  --color-primary-900: #0f1729;
+  /* ── Brand palette ───────────────────────────────────── */
+  /* Primary — darker, near-black slate */
+  --color-primary-50:  #eef0f3;
+  --color-primary-100: #d6dae2;
+  --color-primary-200: #aeb6c4;
+  --color-primary-400: #4c5666;
+  --color-primary-500: #1a2230;
+  --color-primary-600: #131a26;
+  --color-primary-700: #0d121c;
+  --color-primary-900: #060911;
 
-  /* Bronze / gold accent */
-  --color-accent-300: #d9b683;
-  --color-accent-500: #9c6d36; /* primary accent */
-  --color-accent-600: #b87d3f; /* hover */
-  --color-accent-700: #bd8543; /* light variant used on icons */
-  --color-gold:       #d4af37;
+  /* Accent — forest green (replaces bronze) */
+  --color-accent-300: #9ccaa8;
+  --color-accent-500: #3f8559;
+  --color-accent-600: #4a9b68;
+  --color-accent-700: #357047;
+  --color-accent-900: #1f4a2c;
 
-  /* Status (kept) */
-  --color-success-50:  #e6f7ec;
-  --color-success-500: #22a06b;
-  --color-warning-50:  #fef3e0;
-  --color-warning-500: #d98a0c;
+  /* Gold — warm amber gold (highlight) */
+  --color-gold:       #c9a75e;
+  --color-gold-light: #e1c989;
+
+  /* Status */
+  --color-success-50:  #e6f4ec;
+  --color-success-500: #2a8a55;
+  --color-warning-50:  #fef0d8;
+  --color-warning-500: #c97a0c;
 
   /* Surfaces & text */
   --color-bg:           #ffffff;
-  --color-surface:      #f5f3f0; /* lightGray */
-  --color-surface-2:    #e8e0d5; /* beige */
-  --color-text:         #0f1729;
-  --color-text-muted:   #4a5565;
-  --color-border:       rgba(15, 23, 41, 0.18);
+  --color-surface:      #f4f1ea; /* lightGray (warm off-white) */
+  --color-surface-2:    #e8e0d1; /* beige */
+  --color-text:         #0a0f1a;
+  --color-text-muted:   #4d5664;
+  --color-border:       rgba(10, 15, 26, 0.16);
 
-  /* Damla-style semantic aliases */
-  --color-primary:        #343d52;
-  --color-primary-dark:   #0f1729;
-  --color-accent:         #9c6d36;
-  --color-accent-hover:   #b87d3f;
-  --color-accent-light:   #bd8543;
+  /* Semantic aliases (damla-style) */
+  --color-primary:        #161d2a; /* dark slate */
+  --color-primary-dark:   #0a0f1a; /* near-black */
+  --color-accent:         #3f8559; /* forest green */
+  --color-accent-hover:   #4a9b68;
+  --color-accent-light:   #5bab77;
   --color-white:          #ffffff;
-  --color-background-light:  #f5f3f0;
-  --color-background-cream:  #e8e0d5;
-  --color-text-dark:      #0f1729;
-  --color-text-gray:      #4a5565;
-  --color-text-on-dark:   rgba(255, 255, 255, 0.90);
-  --color-text-on-dark-muted: rgba(255, 255, 255, 0.70);
+  --color-background-light:  #f4f1ea;
+  --color-background-cream:  #e8e0d1;
+  --color-text-dark:      #0a0f1a;
+  --color-text-gray:      #4d5664;
+  --color-text-on-dark:   rgba(255, 255, 255, 0.92);
+  --color-text-on-dark-muted: rgba(255, 255, 255, 0.72);
 
   /* Radii */
   --radius-sm:   8px;
@@ -52,7 +56,7 @@
   --radius-xl:   16px;
   --radius-pill: 999px;
 
-  /* Spacing (numeric + named) */
+  /* Spacing */
   --space-1:  4px;
   --space-2:  8px;
   --space-3:  12px;

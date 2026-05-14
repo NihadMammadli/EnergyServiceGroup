@@ -60,9 +60,9 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Əlaqə"
-        title="Layihəniz haqqında bizə danışın"
-        description="Yeni boru kəmərinin planlaşdırılması, paylama şəbəkəsinin genişləndirilməsi və ya stansiyanın modernləşdirilməsi — sizdən eşitmək istərik."
+        eyebrow="Bizimlə əlaqə"
+        title="Layihəniz üçün Etibarlı Tərəfdaş"
+        description="Sorğu | Texniki Məsləhət | Qiymət Təklifi | Tərəfdaşlıq"
       />
 
       <Container className={styles.page}>

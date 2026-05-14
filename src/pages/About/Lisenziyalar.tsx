@@ -11,9 +11,10 @@ export default function LisenziyalarPage() {
   return (
     <>
       <PageHero
-        eyebrow="Sənədlərimiz"
-        title="Lisenziyalarımız"
-        description='Tikinti, qaz və infrastruktur işlərinin qanuni əsasını təşkil edən rəsmi dövlət lisenziyaları.'
+        imageSrc='/home/AboutHeroBackground.jpg'
+        eyebrow="Hüquqi əsas"
+        title="Lisenziyalı və Səlahiyyətli Podratçı"
+        description="Tikinti | Qaz | Su | Elektrik İnfrastrukturu üzrə Dövlət Lisenziyaları"
       />
 
       <Container className={styles.page}>

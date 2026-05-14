@@ -82,16 +82,17 @@ export default function HomePage() {
   return (
     <>
       <PageHero
+        imageSrc='/home/HeroBackground.jpg'
         variant="full"
-        eyebrow="Qaz · Su · Tikinti · Enerji"
+        eyebrow="Energy Service Group MMC"
         title={
           <>
-            Magistral qaz kəmərlərindən{' '}
-            <span className={styles.titleAccent}>aeroport infrastrukturuna</span>{' '}
-            qədər etibarlı mühəndislik.
+            Magistral Qaz Kəmərləri və{' '}
+            <span className={styles.titleAccent}>Enerji İnfrastrukturu</span>{' '}
+            üzrə Mütəxəssis Podratçı
           </>
         }
-        description='"Energy Service Group" MMC — SOCAR, AFEZ, MİDA və dövlət qurumlarının layihələrində magistral qaz kəmərləri, polietilen şəbəkələr, içməli su və elektrik təchizatı xətlərini beynəlxalq standartlara uyğun icra edir.'
+        description="Layihələndirmə | Tikinti-Quraşdırma | Modernləşdirmə | Texniki Nəzarət"
         showScrollCue
         onScrollClick={handleScrollDown}
       >

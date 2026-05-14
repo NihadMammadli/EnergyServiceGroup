@@ -31,9 +31,10 @@ export default function MelumatPage() {
   return (
     <>
       <PageHero
+        imageSrc='/home/AboutHeroBackground.jpg'
         eyebrow="Haqqımızda"
-        title='"Energy Service Group" MMC'
-        description="Qaz kəmərləri, içməli su və kanalizasiya şəbəkələri, elektrik təchizatı, sənaye və yaşayış obyektlərinin tikinti-quraşdırma işləri sahəsində fəaliyyət göstərən şirkət."
+        title="Etibarlı Mühəndislik. Davamlı Tərəfdaşlıq."
+        description="Qaz Kəmərləri | Su Şəbəkələri | Tikinti-Quraşdırma | Elektrik Təchizatı"
       />
 
       <Container className={styles.page}>

@@ -10,9 +10,11 @@ export default function PartnersPage() {
   return (
     <>
       <PageHero
-        eyebrow="Etibar edirlər"
-        title="Tərəfdaşlarımız və müştərilərimiz"
-        description="Mürəkkəb boru kəməri proqramlarını həyata keçirmək üçün milli operatorlar, azad iqtisadi zonalar və strateji enerji təşkilatları ilə işləyirik."
+        imageSrc='/home/ProjectsHeroBackground.jpg'
+
+        eyebrow="Bizə etibar edirlər"
+        title="Strateji Tərəfdaşlarımız və Müştərilərimiz"
+        description="SOCAR | AFEZ | MİDA | AS İnşaat | ND Company | Dövlət Qurumları"
       />
 
       <Container className={styles.page}>

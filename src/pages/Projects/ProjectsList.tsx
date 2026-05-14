@@ -15,17 +15,17 @@ const COPY: Record<
   { eyebrow: string; title: string; description: string; empty: string }
 > = {
   ongoing: {
-    eyebrow: 'Layihələrimiz',
-    title: 'Davam edən layihələr',
+    eyebrow: 'Aktiv portfolio',
+    title: 'Davam Edən Layihələr',
     description:
-      'Hazırda icra edilən boru kəməri, paylama şəbəkəsi və stansiya modernləşdirmə proqramları.',
+      'Magistral Qaz | Su Xətləri | Tikinti | Modernləşdirmə',
     empty: 'Hazırda davam edən layihə yoxdur.',
   },
   completed: {
-    eyebrow: 'Layihələrimiz',
-    title: 'Tamamlanmış layihələr',
+    eyebrow: 'Təhvil verilmiş işlər',
+    title: 'Tamamlanmış Layihələr',
     description:
-      'Beynəlxalq standartlara uyğun, vaxtında və büdcə daxilində uğurla təhvil verilmiş layihələr.',
+      'Qaz Şəbəkələri | İçməli Su | Aeroport İnfrastrukturu | Sənaye Obyektləri',
     empty: 'Hələ ki burada göstəriləcək tamamlanmış layihə yoxdur.',
   },
 };
@@ -48,6 +48,7 @@ export function ProjectsList({ status }: ProjectsListProps) {
   return (
     <>
       <PageHero
+        imageSrc='/home/ProjectsHeroBackground.jpg'
         eyebrow={copy.eyebrow}
         title={copy.title}
         description={copy.description}

@@ -48,9 +48,10 @@ export default function SertifikatlarPage() {
   return (
     <>
       <PageHero
-        eyebrow="Standartlar"
-        title="Sertifikatlarımız"
-        description="Beynəlxalq standartlara uyğunluğumuzu təsdiqləyən sertifikatlar — keyfiyyət, ətraf mühit, əməyin təhlükəsizliyi və müştəri məmnuniyyəti üzrə."
+        imageSrc='/home/AboutHeroBackground.jpg'
+        eyebrow="Beynəlxalq standartlar"
+        title="ISO Sertifikatlı İdarəetmə Sistemləri"
+        description="ISO 9001 | ISO 14001 | ISO 45001 | ISO 10002"
       />
 
       <Container className={styles.page}>
