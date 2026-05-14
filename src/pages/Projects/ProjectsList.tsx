@@ -1,8 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Container } from '@/components/common/Container';
-import { SectionTitle } from '@/components/common/SectionTitle';
+import { PageHero } from '@/components/common/PageHero';
 import { ProjectCard, ProjectCardSkeleton } from '@/components/common/ProjectCard';
-import { Reveal } from '@/components/common/Reveal';
 import { projects } from '@/data/projects';
 import type { ProjectStatus } from '@/types/project';
 import styles from './projects.module.css';
@@ -47,27 +46,27 @@ export function ProjectsList({ status }: ProjectsListProps) {
   );
 
   return (
-    <Container>
-      <Reveal direction="up">
-        <SectionTitle
-          eyebrow={copy.eyebrow}
-          title={copy.title}
-          description={copy.description}
-        />
-      </Reveal>
+    <>
+      <PageHero
+        eyebrow={copy.eyebrow}
+        title={copy.title}
+        description={copy.description}
+      />
 
-      <div
-        key={`${status}-${loading ? 'loading' : 'loaded'}`}
-        className={[styles.grid, loading ? '' : 'stagger-mount up'].filter(Boolean).join(' ')}
-      >
-        {loading
-          ? Array.from({ length: 6 }).map((_, i) => <ProjectCardSkeleton key={i} />)
-          : visible.map((project) => <ProjectCard key={project.id} project={project} />)}
-      </div>
+      <Container className={styles.page}>
+        <div
+          key={`${status}-${loading ? 'loading' : 'loaded'}`}
+          className={[styles.grid, loading ? '' : 'stagger-mount up'].filter(Boolean).join(' ')}
+        >
+          {loading
+            ? Array.from({ length: 6 }).map((_, i) => <ProjectCardSkeleton key={i} />)
+            : visible.map((project) => <ProjectCard key={project.id} project={project} />)}
+        </div>
 
-      {!loading && visible.length === 0 && (
-        <p className={styles.empty}>{copy.empty}</p>
-      )}
-    </Container>
+        {!loading && visible.length === 0 && (
+          <p className={styles.empty}>{copy.empty}</p>
+        )}
+      </Container>
+    </>
   );
 }

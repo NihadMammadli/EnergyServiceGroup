@@ -1,5 +1,6 @@
 import { Compass, Goal, HardHat, Network, ShieldCheck, Wrench } from 'lucide-react';
 import { Container } from '@/components/common/Container';
+import { PageHero } from '@/components/common/PageHero';
 import { SectionTitle } from '@/components/common/SectionTitle';
 import { Reveal } from '@/components/common/Reveal';
 import { useReveal } from '@/hooks/useReveal';
@@ -29,15 +30,13 @@ export default function MelumatPage() {
 
   return (
     <>
-      <Container>
-        <Reveal direction="up">
-          <SectionTitle
-            eyebrow="Haqqımızda"
-            title='"Energy Service Group" MMC'
-            description='"Energy Service Group" MMC — qaz kəmərlərinin çəkilişi, içməli su və kanalizasiya şəbəkələri, elektrik təchizatı, eləcə də sənaye və yaşayış obyektlərinin tikinti-quraşdırma işləri sahəsində fəaliyyət göstərən şirkətdir.'
-          />
-        </Reveal>
+      <PageHero
+        eyebrow="Haqqımızda"
+        title='"Energy Service Group" MMC'
+        description="Qaz kəmərləri, içməli su və kanalizasiya şəbəkələri, elektrik təchizatı, sənaye və yaşayış obyektlərinin tikinti-quraşdırma işləri sahəsində fəaliyyət göstərən şirkət."
+      />
 
+      <Container className={styles.page}>
         <section className={styles.overview}>
           <Reveal direction="left" duration={800}>
             <div className={styles.overviewText}>
@@ -100,7 +99,7 @@ export default function MelumatPage() {
         </Container>
       </section>
 
-      <Container>
+      <Container className={styles.pageBottom}>
         <section
           ref={mvStagger.ref}
           className={[styles.mvGrid, mvStagger.className].join(' ')}

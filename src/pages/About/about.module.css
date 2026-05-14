@@ -1,3 +1,12 @@
+.page {
+  padding-block: var(--section-padding-vertical);
+}
+
+.pageBottom {
+  padding-bottom: var(--section-padding-vertical);
+  padding-top: var(--section-padding-vertical);
+}
+
 .overview {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -9,6 +18,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+  font-family: var(--font-sans);
   font-size: var(--font-size-md);
   color: var(--color-text);
   line-height: 1.7;
@@ -18,8 +28,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  padding: var(--space-6);
-  background-color: var(--color-surface);
+  padding: var(--space-8);
+  background: var(--color-background-cream);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   height: fit-content;
@@ -29,85 +39,95 @@
   display: flex;
   align-items: flex-start;
   gap: var(--space-3);
-  font-size: var(--font-size-sm);
-  color: var(--color-primary-900);
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  line-height: 1.5;
 }
 
 .highlights svg {
-  color: var(--color-accent-500);
+  color: var(--color-accent);
   flex-shrink: 0;
   margin-top: 2px;
 }
 
 .expertise {
-  padding: var(--space-12) 0;
-  background-color: var(--color-surface);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: var(--space-16);
+  padding: var(--section-padding-vertical) 0;
+  background-color: var(--color-background-light);
 }
 
 .expertiseGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-5);
+  gap: var(--space-6);
 }
 
 .expertiseCard {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  padding: var(--space-6);
-  background-color: var(--color-bg);
+  gap: var(--space-4);
+  padding: var(--space-8);
+  background-color: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
 }
 
 .expertiseCard:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
+  border: 1.5px solid var(--color-accent-light);
 }
 
 .expertiseIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
-  background-color: var(--color-primary-50);
-  color: var(--color-primary-700);
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background-color: var(--color-accent-light);
+  color: #ffffff;
 }
 
 .expertiseTitle {
+  font-family: var(--font-sans);
   font-size: var(--font-size-xl);
-  color: var(--color-primary-900);
+  font-weight: 600;
+  color: var(--color-primary-dark);
 }
 
 .expertiseText {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  color: var(--color-text-gray);
   line-height: 1.6;
 }
 
 .mvGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-5);
+  gap: var(--space-6);
 }
 
 .mvCard {
-  padding: var(--space-8);
+  padding: var(--space-10);
   border-radius: var(--radius-lg);
-  background-color: var(--color-bg);
+  background-color: #ffffff;
   border: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition);
+}
+
+.mvCard:hover {
+  box-shadow: var(--shadow-md);
 }
 
 .mvCard::after {
@@ -117,54 +137,60 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background-color: var(--color-primary-500);
+  background-color: var(--color-primary-dark);
 }
 
 .mvCardAccent::after {
-  background-color: var(--color-accent-500);
+  background-color: var(--color-accent);
 }
 
 .mvLabel {
-  font-size: var(--font-size-xs);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-accent-600);
+  letter-spacing: 0.16em;
+  color: var(--color-accent);
 }
 
 .mvTitle {
-  font-size: var(--font-size-xl);
-  color: var(--color-primary-900);
+  font-family: var(--font-sans);
+  font-size: clamp(20px, 2.2vw, 24px);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  line-height: 1.35;
 }
 
 .mvBody {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  color: var(--color-text-gray);
   line-height: 1.6;
 }
 
-/* Document grid (used by Lisenziyalar / Sertifikatlar) */
+/* Document grid (Lisenziyalar / Sertifikatlar) */
 .docGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
 }
 
 .docCard {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  padding: var(--space-6);
-  background-color: var(--color-bg);
+  gap: var(--space-4);
+  padding: var(--space-8);
+  background-color: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
 }
 
 .docCard:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  border-color: var(--color-primary-200);
+  border: 1.5px solid var(--color-accent-light);
 }
 
 .docHeader {
@@ -178,25 +204,27 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-md);
-  background-color: var(--color-primary-50);
-  color: var(--color-primary-700);
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background-color: var(--color-accent-light);
+  color: #ffffff;
 }
 
 .docNumber {
   font-size: var(--font-size-xs);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--color-text-muted);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--color-text-gray);
   text-transform: uppercase;
 }
 
 .docTitle {
-  font-size: var(--font-size-md);
-  color: var(--color-primary-900);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-lg);
   font-weight: 600;
+  color: var(--color-primary-dark);
+  line-height: 1.35;
 }
 
 .docMeta {
@@ -206,13 +234,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: var(--font-size-xs);
-  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-gray);
 }
 
 .docMetaAccent {
-  color: var(--color-accent-600);
-  font-weight: 600;
+  color: var(--color-accent);
+  font-weight: 700;
   display: inline-flex;
   align-items: center;
 }
@@ -232,9 +261,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-6);
-  padding: var(--space-6);
-  background-color: var(--color-bg);
+  gap: var(--space-8);
+  padding: var(--space-10);
+  background-color: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
@@ -252,13 +281,6 @@
   flex-shrink: 0;
 }
 
-@media (max-width: 720px) {
-  .licenseHero {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
 @media (max-width: 900px) {
   .overview {
     grid-template-columns: 1fr;
@@ -269,5 +291,19 @@
   }
   .mvGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding-block: var(--section-padding-vertical-mobile);
+  }
+  .licenseHero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-6);
+  }
+  .licenseLink {
+    width: 100%;
   }
 }

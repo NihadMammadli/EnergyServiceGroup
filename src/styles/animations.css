@@ -1,7 +1,10 @@
-/* Global animation utilities — used by useReveal / Reveal component
-   and the page-transition wrapper in MainLayout.                    */
+/* Global animation utilities — used by useReveal / Reveal component,
+   page-transition wrapper in MainLayout, and damla-style hero/section
+   reveals (fadeInUp, slideInFromLeft/Right, bouncing scroll cue). */
 
-/* Reveal: hidden until .in is added by IntersectionObserver */
+/* ============================================
+   REVEAL (single element)
+   ============================================ */
 .reveal {
   opacity: 0;
   transition-property: opacity, transform;
@@ -10,32 +13,21 @@
   will-change: opacity, transform;
 }
 
-.reveal.up {
-  transform: translateY(28px);
-}
-.reveal.down {
-  transform: translateY(-28px);
-}
-.reveal.left {
-  transform: translateX(-36px);
-}
-.reveal.right {
-  transform: translateX(36px);
-}
-.reveal.zoom {
-  transform: scale(0.94);
-}
-.reveal.fade {
-  transform: none;
-}
+.reveal.up    { transform: translateY(28px); }
+.reveal.down  { transform: translateY(-28px); }
+.reveal.left  { transform: translateX(-36px); }
+.reveal.right { transform: translateX(36px); }
+.reveal.zoom  { transform: scale(0.94); }
+.reveal.fade  { transform: none; }
 
 .reveal.in {
   opacity: 1;
   transform: none;
 }
 
-/* Stagger: parent gets the class; children animate in sequence via nth-child.
-   Works with any markup (ul/li, div/div, etc.) since no wrapping is required.   */
+/* ============================================
+   STAGGER (scroll-triggered children)
+   ============================================ */
 .stagger > * {
   opacity: 0;
   transition-property: opacity, transform;
@@ -44,24 +36,12 @@
   will-change: opacity, transform;
 }
 
-.stagger.up > * {
-  transform: translateY(28px);
-}
-.stagger.down > * {
-  transform: translateY(-28px);
-}
-.stagger.left > * {
-  transform: translateX(-36px);
-}
-.stagger.right > * {
-  transform: translateX(36px);
-}
-.stagger.zoom > * {
-  transform: scale(0.94);
-}
-.stagger.fade > * {
-  transform: none;
-}
+.stagger.up    > * { transform: translateY(28px); }
+.stagger.down  > * { transform: translateY(-28px); }
+.stagger.left  > * { transform: translateX(-36px); }
+.stagger.right > * { transform: translateX(36px); }
+.stagger.zoom  > * { transform: scale(0.94); }
+.stagger.fade  > * { transform: none; }
 
 .stagger.in > * {
   opacity: 1;
@@ -82,24 +62,13 @@
 .stagger > *:nth-child(12) { transition-delay: 720ms; }
 .stagger > *:nth-child(n+13) { transition-delay: 800ms; }
 
-/* Mount-based stagger: animation (not transition) so it replays whenever
-   the children are (re)mounted — useful after a loading state finishes. */
-@keyframes stagMountUp {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: none; }
-}
-@keyframes stagMountLeft {
-  from { opacity: 0; transform: translateX(-36px); }
-  to   { opacity: 1; transform: none; }
-}
-@keyframes stagMountRight {
-  from { opacity: 0; transform: translateX(36px); }
-  to   { opacity: 1; transform: none; }
-}
-@keyframes stagMountZoom {
-  from { opacity: 0; transform: scale(0.94); }
-  to   { opacity: 1; transform: none; }
-}
+/* ============================================
+   MOUNT-BASED STAGGER (replays on remount)
+   ============================================ */
+@keyframes stagMountUp    { from { opacity: 0; transform: translateY(28px); }  to { opacity: 1; transform: none; } }
+@keyframes stagMountLeft  { from { opacity: 0; transform: translateX(-36px); } to { opacity: 1; transform: none; } }
+@keyframes stagMountRight { from { opacity: 0; transform: translateX(36px); }  to { opacity: 1; transform: none; } }
+@keyframes stagMountZoom  { from { opacity: 0; transform: scale(0.94); }       to { opacity: 1; transform: none; } }
 
 .stagger-mount > * {
   opacity: 0;
@@ -108,10 +77,10 @@
   animation-fill-mode: both;
   animation-name: stagMountUp;
 }
-.stagger-mount.up > *    { animation-name: stagMountUp; }
-.stagger-mount.left > *  { animation-name: stagMountLeft; }
+.stagger-mount.up    > * { animation-name: stagMountUp; }
+.stagger-mount.left  > * { animation-name: stagMountLeft; }
 .stagger-mount.right > * { animation-name: stagMountRight; }
-.stagger-mount.zoom > *  { animation-name: stagMountZoom; }
+.stagger-mount.zoom  > * { animation-name: stagMountZoom; }
 
 .stagger-mount > *:nth-child(1)  { animation-delay:  60ms; }
 .stagger-mount > *:nth-child(2)  { animation-delay: 120ms; }
@@ -127,38 +96,81 @@
 .stagger-mount > *:nth-child(12) { animation-delay: 720ms; }
 .stagger-mount > *:nth-child(n+13) { animation-delay: 800ms; }
 
-/* Page-level enter animation — replayed on every route change via key */
+/* ============================================
+   PAGE / HERO RISE
+   ============================================ */
 @keyframes pageEnter {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
 }
+.page-enter { animation: pageEnter 380ms cubic-bezier(0.22, 1, 0.36, 1) both; }
 
-.page-enter {
-  animation: pageEnter 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-/* Reusable hero rise animation (currently used on Home hero) */
 @keyframes heroRise {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+.hero-rise { animation: heroRise 520ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* ============================================
+   DAMLA-STYLE FADE / SLIDE / BOUNCE
+   ============================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.hero-rise {
-  animation: heroRise 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
+@keyframes slideInFromLeft {
+  from { opacity: 0; transform: translateX(-100px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInFromRight {
+  from { opacity: 0; transform: translateX(100px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(-20px); }
+}
+
+/* Stagger children of a parent that gains `.is-visible` */
+.animate-children > * {
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: transform, opacity;
+}
+
+.animate-children.is-visible > * {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-children.is-visible > *:nth-child(1) { animation-delay: 0.10s; }
+.animate-children.is-visible > *:nth-child(2) { animation-delay: 0.20s; }
+.animate-children.is-visible > *:nth-child(3) { animation-delay: 0.30s; }
+.animate-children.is-visible > *:nth-child(4) { animation-delay: 0.40s; }
+.animate-children.is-visible > *:nth-child(5) { animation-delay: 0.50s; }
+.animate-children.is-visible > *:nth-child(6) { animation-delay: 0.60s; }
+
+@media (max-width: 768px) {
+  .animate-children > * { transform: translateY(24px); }
+  .animate-children.is-visible > * { animation-duration: 0.6s; }
+  .animate-children.is-visible > *:nth-child(1) { animation-delay: 0.05s; }
+  .animate-children.is-visible > *:nth-child(2) { animation-delay: 0.10s; }
+  .animate-children.is-visible > *:nth-child(3) { animation-delay: 0.15s; }
+  .animate-children.is-visible > *:nth-child(4) { animation-delay: 0.20s; }
+  .animate-children.is-visible > *:nth-child(5) { animation-delay: 0.25s; }
+  .animate-children.is-visible > *:nth-child(6) { animation-delay: 0.30s; }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal.up,
@@ -167,7 +179,8 @@
   .reveal.right,
   .reveal.zoom,
   .stagger > *,
-  .stagger-mount > * {
+  .stagger-mount > *,
+  .animate-children > * {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;

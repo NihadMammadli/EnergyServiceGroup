@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Phone } from 'lucide-react';
-import { Container } from '@/components/common/Container';
+import { ArrowRight, Clock, MapPin, Phone } from 'lucide-react';
 import styles from './Footer.module.css';
 
 const FOOTER_LINKS: { to: string; label: string }[] = [
@@ -16,19 +15,34 @@ export function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <Container>
+      <div className={styles.cta}>
+        <h3 className={styles.ctaTitle}>
+          Növbəti layihəniz üçün{' '}
+          <span className={styles.ctaTitleAccent}>etibarlı tərəfdaş</span> axtarırsınız?
+        </h3>
+        <p className={styles.ctaDescription}>
+          Qaz kəmərləri, su xətləri və elektrik infrastrukturu — sizinlə yanaşı planlaşdırmaqdan
+          təhvilə qədər.
+        </p>
+        <Link to="/elaqe" className={styles.ctaButton}>
+          Bizimlə əlaqə
+          <ArrowRight size={18} />
+        </Link>
+      </div>
+
+      <div className={styles.body}>
         <div className={styles.grid}>
-          <div className={styles.brand}>
+          <div className={[styles.column, styles.brandSection].join(' ')}>
             <span className={styles.brandTitle}>"Energy Service Group" MMC</span>
-            <p className={styles.brandTagline}>
+            <p className={styles.brandDescription}>
               Magistral qaz kəmərləri, polietilen şəbəkələr, içməli su və elektrik
               təchizatı xətləri, sənaye və yaşayış obyektlərinin tikinti-quraşdırma işləri.
             </p>
-            <span className={styles.brandTagline}>VÖEN: 1404206411</span>
+            <span className={styles.brandMeta}>VÖEN: 1404206411</span>
           </div>
 
-          <div>
-            <h4 className={styles.heading}>Naviqasiya</h4>
+          <div className={styles.column}>
+            <h4 className={styles.columnTitle}>Naviqasiya</h4>
             <ul className={styles.linkList}>
               {FOOTER_LINKS.map((item) => (
                 <li key={item.to}>
@@ -40,17 +54,32 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className={styles.heading}>Əlaqə</h4>
+          <div className={styles.column}>
+            <h4 className={styles.columnTitle}>Əlaqə</h4>
             <ul className={styles.contactList}>
-              <li>
-                <MapPin size={14} aria-hidden="true" />
-                <span>Abşeron rayonu, Saray ŞTQ, Polad Həşimov küç. 409</span>
+              <li className={styles.contactItem}>
+                <MapPin size={16} className={styles.contactIcon} aria-hidden="true" />
+                <span>Abşeron rayonu, Saray ŞTQ,<br />Polad Həşimov küç. 409</span>
               </li>
-              <li>
-                <Phone size={14} aria-hidden="true" />
+              <li className={styles.contactItem}>
+                <Phone size={16} className={styles.contactIcon} aria-hidden="true" />
                 <a href="tel:+994502118829">(050) 211 88 29</a>
               </li>
+              <li className={styles.contactItem}>
+                <Clock size={16} className={styles.contactIcon} aria-hidden="true" />
+                <span>B.e — Cümə · 09:00 — 18:00</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className={styles.column}>
+            <h4 className={styles.columnTitle}>Sertifikasiyalar</h4>
+            <ul className={styles.linkList}>
+              <li><Link to="/haqqimizda/lisenziyalar" className={styles.link}>Lisenziyalar</Link></li>
+              <li><Link to="/haqqimizda/sertifikatlar" className={styles.link}>ISO 9001:2015</Link></li>
+              <li><Link to="/haqqimizda/sertifikatlar" className={styles.link}>ISO 14001:2015</Link></li>
+              <li><Link to="/haqqimizda/sertifikatlar" className={styles.link}>ISO 45001:2018</Link></li>
+              <li><Link to="/haqqimizda/sertifikatlar" className={styles.link}>ISO 10002:2018</Link></li>
             </ul>
           </div>
         </div>
@@ -59,7 +88,7 @@ export function Footer() {
           <span>© {year} "Energy Service Group" MMC. Bütün hüquqlar qorunur.</span>
           <span className={styles.bottomMeta}>Direktor: N.B. Abbasov</span>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }

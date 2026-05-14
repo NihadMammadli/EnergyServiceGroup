@@ -21,6 +21,7 @@ interface UseRevealResult<T extends HTMLElement> {
   ref: React.RefObject<T>;
   className: string;
   style: CSSProperties;
+  inView: boolean;
 }
 
 export function useReveal<T extends HTMLElement = HTMLDivElement>(
@@ -74,5 +75,5 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(
         transitionDuration: `${duration}ms`,
       };
 
-  return { ref, className, style };
+  return { ref, className, style, inView };
 }

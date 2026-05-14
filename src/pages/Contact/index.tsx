@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { CheckCircle2, Clock, MapPin, Phone, Send } from 'lucide-react';
 import { Container } from '@/components/common/Container';
-import { SectionTitle } from '@/components/common/SectionTitle';
+import { PageHero } from '@/components/common/PageHero';
 import { Reveal } from '@/components/common/Reveal';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
@@ -58,126 +58,126 @@ export default function ContactPage() {
   };
 
   return (
-    <Container>
-      <Reveal direction="up">
-        <SectionTitle
-          eyebrow="Əlaqə saxlayın"
-          title="Layihəniz haqqında bizə danışın"
-          description="Yeni boru kəmərinin planlaşdırılması, paylama şəbəkəsinin genişləndirilməsi və ya stansiyanın modernləşdirilməsi — sizdən eşitmək istərik."
-        />
-      </Reveal>
+    <>
+      <PageHero
+        eyebrow="Əlaqə"
+        title="Layihəniz haqqında bizə danışın"
+        description="Yeni boru kəmərinin planlaşdırılması, paylama şəbəkəsinin genişləndirilməsi və ya stansiyanın modernləşdirilməsi — sizdən eşitmək istərik."
+      />
 
-      <div className={styles.grid}>
-        <Reveal direction="left" duration={800}>
-        <form className={styles.form} onSubmit={handleSubmit} noValidate>
-          {submitted && (
-            <div className={styles.success} role="status">
-              <CheckCircle2 size={18} aria-hidden="true" />
-              <span>Təşəkkürlər — mesajınız göndərildi. Tezliklə əlaqə saxlayacağıq.</span>
-            </div>
-          )}
+      <Container className={styles.page}>
+        <div className={styles.grid}>
+          <Reveal direction="left" duration={800}>
+            <form className={styles.form} onSubmit={handleSubmit} noValidate>
+              {submitted && (
+                <div className={styles.success} role="status">
+                  <CheckCircle2 size={18} aria-hidden="true" />
+                  <span>Təşəkkürlər — mesajınız göndərildi. Tezliklə əlaqə saxlayacağıq.</span>
+                </div>
+              )}
 
-          <div className={styles.row}>
-            <Input
-              label="Ad və Soyad"
-              value={values.name}
-              onChange={handleChange('name')}
-              error={errors.name}
-              placeholder="Cəmilə Əliyeva"
-              required
-            />
-            <Input
-              label="E-poçt ünvanı"
-              type="email"
-              value={values.email}
-              onChange={handleChange('email')}
-              error={errors.email}
-              placeholder="info@numune.az"
-              required
-            />
-          </div>
+              <div className={styles.row}>
+                <Input
+                  label="Ad və Soyad"
+                  value={values.name}
+                  onChange={handleChange('name')}
+                  error={errors.name}
+                  placeholder="Cəmilə Əliyeva"
+                  required
+                />
+                <Input
+                  label="E-poçt ünvanı"
+                  type="email"
+                  value={values.email}
+                  onChange={handleChange('email')}
+                  error={errors.email}
+                  placeholder="info@numune.az"
+                  required
+                />
+              </div>
 
-          <Input
-            label="Mövzu"
-            value={values.subject}
-            onChange={handleChange('subject')}
-            error={errors.subject}
-            placeholder="Boru kəməri genişləndirilməsi sorğusu"
-            required
-          />
+              <Input
+                label="Mövzu"
+                value={values.subject}
+                onChange={handleChange('subject')}
+                error={errors.subject}
+                placeholder="Boru kəməri genişləndirilməsi sorğusu"
+                required
+              />
 
-          <TextArea
-            label="Mesaj"
-            value={values.message}
-            onChange={handleChange('message')}
-            error={errors.message}
-            placeholder="Sahə, ərazi və vaxt çərçivəsi haqqında qısa məlumat verin."
-            required
-          />
+              <TextArea
+                label="Mesaj"
+                value={values.message}
+                onChange={handleChange('message')}
+                error={errors.message}
+                placeholder="Sahə, ərazi və vaxt çərçivəsi haqqında qısa məlumat verin."
+                required
+              />
 
-          <div className={styles.actions}>
-            <Button type="submit" variant="accent" rightIcon={<Send size={16} />}>
-              Mesaj göndər
-            </Button>
-            <span className={styles.note}>Adətən bir iş günü ərzində cavablandırırıq.</span>
-          </div>
-        </form>
-        </Reveal>
+              <div className={styles.actions}>
+                <Button type="submit" variant="accent" rightIcon={<Send size={16} />}>
+                  Mesaj göndər
+                </Button>
+                <span className={styles.note}>Adətən bir iş günü ərzində cavablandırırıq.</span>
+              </div>
+            </form>
+          </Reveal>
 
-        <Reveal direction="right" duration={800} delay={120}>
-        <aside className={styles.info}>
-          <h3 className={styles.infoTitle}>Bizimlə birbaşa əlaqə</h3>
-          <ul className={styles.infoList}>
-            <li>
-              <span className={styles.infoIcon}>
-                <MapPin size={16} />
-              </span>
-              <div>
-                <span className={styles.infoLabel}>Ünvan</span>
-                <span className={styles.infoValue}>
-                  Abşeron rayonu, Saray ŞTQ, Polad Həşimov küç. 409
+          <Reveal direction="right" duration={800} delay={120}>
+            <aside className={styles.info}>
+              <h3 className={styles.infoTitle}>Bizimlə birbaşa əlaqə</h3>
+              <ul className={styles.infoList}>
+                <li>
+                  <span className={styles.infoIcon}>
+                    <MapPin size={16} />
+                  </span>
+                  <div>
+                    <span className={styles.infoLabel}>Ünvan</span>
+                    <span className={styles.infoValue}>
+                      Abşeron rayonu, Saray ŞTQ, Polad Həşimov küç. 409
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <span className={styles.infoIcon}>
+                    <Phone size={16} />
+                  </span>
+                  <div>
+                    <span className={styles.infoLabel}>Telefon</span>
+                    <a href="tel:+994502118829" className={styles.infoLink}>
+                      (050) 211 88 29
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <span className={styles.infoIcon}>
+                    <Clock size={16} />
+                  </span>
+                  <div>
+                    <span className={styles.infoLabel}>İş saatları</span>
+                    <span className={styles.infoValue}>B.e — Cümə · 09:00 — 18:00</span>
+                  </div>
+                </li>
+                <li>
+                  <span className={styles.infoIcon}>
+                    <MapPin size={16} />
+                  </span>
+                  <div>
+                    <span className={styles.infoLabel}>VÖEN</span>
+                    <span className={styles.infoValue}>1404206411</span>
+                  </div>
+                </li>
+              </ul>
+              <div className={styles.mapPlaceholder} role="img" aria-label="Yerləşmə xəritəsi">
+                <span className={styles.mapPin}>
+                  <MapPin size={20} />
                 </span>
+                <span>Xəritə</span>
               </div>
-            </li>
-            <li>
-              <span className={styles.infoIcon}>
-                <Phone size={16} />
-              </span>
-              <div>
-                <span className={styles.infoLabel}>Telefon</span>
-                <a href="tel:+994502118829" className={styles.infoLink}>
-                  (050) 211 88 29
-                </a>
-              </div>
-            </li>
-            <li>
-              <span className={styles.infoIcon}>
-                <Clock size={16} />
-              </span>
-              <div>
-                <span className={styles.infoLabel}>İş saatları</span>
-                <span className={styles.infoValue}>B.e — Cümə · 09:00 — 18:00</span>
-              </div>
-            </li>
-            <li>
-              <span className={styles.infoIcon}>
-                <MapPin size={16} />
-              </span>
-              <div>
-                <span className={styles.infoLabel}>VÖEN</span>
-                <span className={styles.infoValue}>1404206411</span>
-              </div>
-            </li>
-          </ul>
-          <div className={styles.mapPlaceholder} role="img" aria-label="Yerləşmə xəritəsi">
-            <span className={styles.mapPin}>
-              <MapPin size={20} />
-            </span>
-            <span>Xəritə</span>
-          </div>
-        </aside>
-        </Reveal>
-      </div>
-    </Container>
+            </aside>
+          </Reveal>
+        </div>
+      </Container>
+    </>
   );
 }

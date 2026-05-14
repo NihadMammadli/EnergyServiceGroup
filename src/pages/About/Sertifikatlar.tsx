@@ -1,7 +1,6 @@
 import { Award, ExternalLink } from 'lucide-react';
 import { Container } from '@/components/common/Container';
-import { SectionTitle } from '@/components/common/SectionTitle';
-import { Reveal } from '@/components/common/Reveal';
+import { PageHero } from '@/components/common/PageHero';
 import { useReveal } from '@/hooks/useReveal';
 import styles from './about.module.css';
 
@@ -47,43 +46,44 @@ const certificates: CertificateEntry[] = [
 export default function SertifikatlarPage() {
   const grid = useReveal<HTMLDivElement>({ stagger: true, direction: 'up' });
   return (
-    <Container>
-      <Reveal direction="up">
-        <SectionTitle
-          eyebrow="Standartlar"
-          title="Sertifikatlarımız"
-          description="Beynəlxalq standartlara uyğunluğumuzu təsdiqləyən sertifikatlar — keyfiyyət, ətraf mühit, əməyin təhlükəsizliyi və müştəri məmnuniyyəti üzrə."
-        />
-      </Reveal>
-      <div ref={grid.ref} className={[styles.docGrid, grid.className].join(' ')}>
-        {certificates.map((cert) => (
-          <a
-            key={cert.code}
-            href={encodeURI(cert.file)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.docCardLink}
-          >
-            <article className={styles.docCard}>
-              <div className={styles.docHeader}>
-                <span className={styles.docIcon}>
-                  <Award size={20} />
-                </span>
-                <span className={styles.docNumber}>{cert.code}</span>
-              </div>
-              <h3 className={styles.docTitle}>{cert.title}</h3>
-              <p className={styles.expertiseText}>{cert.issuer}</p>
-              <div className={styles.docMeta}>
-                <span>Verilmə ili</span>
-                <span className={styles.docMetaAccent}>
-                  {cert.year}
-                  <ExternalLink size={12} aria-hidden="true" style={{ marginLeft: 6 }} />
-                </span>
-              </div>
-            </article>
-          </a>
-        ))}
-      </div>
-    </Container>
+    <>
+      <PageHero
+        eyebrow="Standartlar"
+        title="Sertifikatlarımız"
+        description="Beynəlxalq standartlara uyğunluğumuzu təsdiqləyən sertifikatlar — keyfiyyət, ətraf mühit, əməyin təhlükəsizliyi və müştəri məmnuniyyəti üzrə."
+      />
+
+      <Container className={styles.page}>
+        <div ref={grid.ref} className={[styles.docGrid, grid.className].join(' ')}>
+          {certificates.map((cert) => (
+            <a
+              key={cert.code}
+              href={encodeURI(cert.file)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.docCardLink}
+            >
+              <article className={styles.docCard}>
+                <div className={styles.docHeader}>
+                  <span className={styles.docIcon}>
+                    <Award size={20} />
+                  </span>
+                  <span className={styles.docNumber}>{cert.code}</span>
+                </div>
+                <h3 className={styles.docTitle}>{cert.title}</h3>
+                <p className={styles.expertiseText}>{cert.issuer}</p>
+                <div className={styles.docMeta}>
+                  <span>Verilmə ili</span>
+                  <span className={styles.docMetaAccent}>
+                    {cert.year}
+                    <ExternalLink size={12} aria-hidden="true" style={{ marginLeft: 6 }} />
+                  </span>
+                </div>
+              </article>
+            </a>
+          ))}
+        </div>
+      </Container>
+    </>
   );
 }
