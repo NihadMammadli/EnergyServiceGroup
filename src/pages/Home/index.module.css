@@ -217,7 +217,7 @@
    FEATURED PROJECTS — beige background, cards grid
    ============================================ */
 .featured {
-  background: var(--color-background-cream);
+  background: var(--color-background-light);
   padding: var(--section-padding-vertical) var(--section-padding-horizontal);
 }
 
