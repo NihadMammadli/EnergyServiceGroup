@@ -6,6 +6,7 @@ import LisenziyalarPage from '@/pages/About/Lisenziyalar';
 import SertifikatlarPage from '@/pages/About/Sertifikatlar';
 import { ProjectsList } from '@/pages/Projects/ProjectsList';
 import PartnersPage from '@/pages/Partners';
+import GalleryPage from '@/pages/Gallery';
 import ContactPage from '@/pages/Contact';
 
 export const router = createBrowserRouter([
@@ -32,6 +33,7 @@ export const router = createBrowserRouter([
         ],
       },
       { path: 'partnyorlar', element: <PartnersPage /> },
+      { path: 'qaleriya', element: <GalleryPage /> },
       { path: 'elaqe', element: <ContactPage /> },
       { path: '*', element: <Navigate to="/" replace /> },
     ],

@@ -38,6 +38,7 @@ export const navItems: NavItem[] = [
     ],
   },
   { type: 'link', to: '/partnyorlar', label: 'Partnyorlar' },
+  { type: 'link', to: '/qaleriya', label: 'Qaleriya' },
 ];
 
 export const contactRoute = { to: '/elaqe', label: 'Əlaqə' };

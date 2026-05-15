@@ -1,0 +1,198 @@
+.page {
+  padding-block: var(--section-padding-vertical);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.toolbar {
+  display: inline-flex;
+  align-self: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  background-color: var(--color-background-cream);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 0;
+  background: transparent;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-gray);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.filterBtn:hover {
+  color: var(--color-primary-dark);
+}
+
+.filterBtnActive {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+.filterBtnActive:hover {
+  color: #ffffff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-background-cream);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.tile:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.tileMedia {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.0) 40%, rgba(0, 0, 0, 0.45) 100%);
+  color: #ffffff;
+  pointer-events: none;
+  transition: background 0.25s ease;
+}
+
+.tile:hover .playOverlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.tileBadge {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: var(--color-primary-dark);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+}
+
+.empty {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  color: var(--color-text-gray);
+  text-align: center;
+  padding: var(--space-8) 0;
+}
+
+/* ── Lightbox ────────────────────────────────────────────── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  animation: lightboxIn 180ms ease-out;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.lightboxClose:hover {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+.lightboxContent {
+  max-width: min(1200px, 100%);
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightboxMedia {
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  background: #000;
+}
+
+@keyframes lightboxIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding-block: var(--section-padding-vertical-mobile);
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+  .lightbox {
+    padding: var(--space-3);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
