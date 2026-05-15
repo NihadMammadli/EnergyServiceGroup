@@ -7,7 +7,13 @@ interface PageHeroProps {
   description?: ReactNode;
   /** Optional background image URL. When omitted, a navy + bronze CSS pattern is used. */
   imageSrc?: string;
+  /** Optional background video URL. Takes precedence over imageSrc when provided. */
+  videoSrc?: string;
+  /** Optional poster image shown before the background video loads. */
+  videoPoster?: string;
   variant?: 'full' | 'compact';
+  /** Optional override for the section's min-height (any valid CSS length, e.g. "78vh"). */
+  minHeight?: string;
   align?: 'center' | 'left';
   showScrollCue?: boolean;
   onScrollClick?: () => void;
@@ -19,7 +25,10 @@ export function PageHero({
   title,
   description,
   imageSrc,
+  videoSrc,
+  videoPoster,
   variant = 'compact',
+  minHeight,
   align = 'center',
   showScrollCue = false,
   onScrollClick,
@@ -36,16 +45,30 @@ export function PageHero({
   return (
     <section
       className={[styles.hero, variant === 'full' ? styles.full : styles.compact].join(' ')}
+      style={minHeight ? { minHeight } : undefined}
       role="banner"
     >
       <div
         className={[
           styles.background,
-          imageSrc ? styles.backgroundWithImage : '',
+          imageSrc && !videoSrc ? styles.backgroundWithImage : '',
         ].join(' ')}
-        style={backgroundStyle}
+        style={!videoSrc ? backgroundStyle : undefined}
         aria-hidden="true"
       />
+      {videoSrc && (
+        <video
+          className={styles.backgroundVideo}
+          src={videoSrc}
+          poster={videoPoster}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
+      )}
       <div className={styles.overlay} aria-hidden="true" />
 
       <div className={innerCls}>
