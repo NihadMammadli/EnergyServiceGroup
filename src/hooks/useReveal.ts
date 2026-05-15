@@ -31,7 +31,12 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(
     direction = 'up',
     delay = 0,
     duration = 700,
-    threshold = 0.15,
+    // Default to 0: any pixel of the target intersecting the viewport triggers
+    // the reveal. A non-zero threshold is unsafe for tall containers — when the
+    // target is taller than viewport / threshold, the intersectionRatio can
+    // never reach it and the callback never fires (e.g. the 36-tile single-col
+    // Gallery grid on iPhone).
+    threshold = 0,
     rootMargin = '0px 0px -40px 0px',
     once = true,
     stagger = false,
