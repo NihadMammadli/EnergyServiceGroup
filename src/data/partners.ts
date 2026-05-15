@@ -51,8 +51,8 @@ export const partners: Partner[] = [
   },
   {
     id: 'idp',
-    name: 'IDP',
-    initials: 'IDP',
+    name: 'AR QMKDK',
+    initials: 'AR QMKDK',
     description:
       'Azərbaycan Respublikası Qaçqınların və Məcburi Köçkünlərin İşləri Üzrə Dövlət Komitəsi',
     url: 'https://idp.gov.az/az',
