@@ -140,6 +140,7 @@ export default function GalleryPage() {
                   className={styles.lightboxMedia}
                   controls
                   autoPlay
+                  muted
                   playsInline
                 />
               )}
