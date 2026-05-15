@@ -84,11 +84,12 @@ export default function GalleryPage() {
               ) : (
                 <>
                   <video
-                    src={item.src}
+                    src={`${item.src}#t=0.1`}
                     className={styles.tileMedia}
                     muted
                     playsInline
                     preload="metadata"
+                    disableRemotePlayback
                   />
                   <span className={styles.playOverlay} aria-hidden="true">
                     <Play size={28} fill="currentColor" />
