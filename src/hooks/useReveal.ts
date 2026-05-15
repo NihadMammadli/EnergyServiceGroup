@@ -63,7 +63,29 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(
     );
 
     observer.observe(node);
-    return () => observer.disconnect();
+
+    // Fallback: if the element is already in the viewport at mount, mark it
+    // visible synchronously instead of waiting for the observer's initial
+    // callback. The observer can fail to fire in time when the element is
+    // wrapped in a parent that's mid-animation (e.g. .page-enter), leaving
+    // above-the-fold content stuck at opacity: 0 in production.
+    const rafId = requestAnimationFrame(() => {
+      const rect = node.getBoundingClientRect();
+      const inViewNow =
+        rect.bottom > 0 &&
+        rect.right > 0 &&
+        rect.top < window.innerHeight &&
+        rect.left < window.innerWidth;
+      if (inViewNow) {
+        setInView(true);
+        if (once) observer.disconnect();
+      }
+    });
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      observer.disconnect();
+    };
   }, [threshold, rootMargin, once]);
 
   const root = stagger ? 'stagger' : 'reveal';
