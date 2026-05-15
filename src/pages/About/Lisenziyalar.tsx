@@ -44,6 +44,17 @@ export default function LisenziyalarPage() {
             </a>
           </div>
         </Reveal>
+
+        <Reveal direction="up" delay={200} duration={800}>
+          <div className={styles.licensePreview}>
+            <iframe
+              src={`${encodeURI(LICENSE_FILE)}#view=FitH&toolbar=0&navpanes=0`}
+              title="ESG Lisenziyalar paketi — önizləmə"
+              className={styles.licensePreviewFrame}
+              loading="lazy"
+            />
+          </div>
+        </Reveal>
       </Container>
     </>
   );

@@ -15,7 +15,7 @@ export const partners: Partner[] = [
     initials: 'SO',
     description: 'Azərbaycan Respublikası Dövlət Neft Şirkəti',
     url: 'https://socar.az/',
-    logo: '',
+    logo: '/partners/socar.png',
   },
   {
     id: 'afez',
@@ -23,7 +23,7 @@ export const partners: Partner[] = [
     initials: 'AF',
     description: 'Ələt Azad İqtisadi Zonası',
     url: 'https://afez.az/',
-    logo: '',
+    logo: '/partners/afez.jpg',
   },
   {
     id: 'mida',
@@ -31,7 +31,7 @@ export const partners: Partner[] = [
     initials: 'MD',
     description: 'Mənzil İnşaatı Dövlət Agentliyi',
     url: 'https://mida.gov.az/',
-    logo: '',
+    logo: '/partners/mida.jpg',
   },
   {
     id: 'as-group',
@@ -39,7 +39,7 @@ export const partners: Partner[] = [
     initials: 'AS',
     description: 'Tikinti və infrastruktur tərəfdaşı',
     url: 'https://asgroup.az/',
-    logo: '',
+    logo: '/partners/asgroup.jpg',
   },
   {
     id: 'silkway-group',
@@ -47,6 +47,6 @@ export const partners: Partner[] = [
     initials: 'SW',
     description: 'Logistika və infrastruktur tərəfdaşı',
     url: 'https://www.silkwaygroup.com/',
-    logo: '',
+    logo: '/partners/silkwaygroup.png',
   },
 ];

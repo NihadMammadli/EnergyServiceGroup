@@ -65,6 +65,21 @@ export default function SertifikatlarPage() {
               className={styles.docCardLink}
             >
               <article className={styles.docCard}>
+                <div className={styles.docPreview}>
+                  <iframe
+                    src={`${encodeURI(cert.file)}#view=FitH&toolbar=0&navpanes=0&scrollbar=0`}
+                    title={`${cert.code} — önizləmə`}
+                    className={styles.docPreviewFrame}
+                    loading="lazy"
+                    aria-hidden="true"
+                  />
+                  <div className={styles.docPreviewOverlay}>
+                    <span className={styles.docPreviewBadge}>
+                      <ExternalLink size={12} aria-hidden="true" />
+                      Aç
+                    </span>
+                  </div>
+                </div>
                 <div className={styles.docHeader}>
                   <span className={styles.docIcon}>
                     <Award size={20} />

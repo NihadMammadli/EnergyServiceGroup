@@ -68,7 +68,7 @@ export default function HomePage() {
     {
       icon: Users,
       title: 'Etibarlı tərəfdaşlıq',
-      text: 'SOCAR, AFEZ, MİDA və dövlət qurumları ilə uzunmüddətli müqavilələr.',
+      text: 'MİDA, SW AFEZCO və s. şirkətlər ilə uzunmüddətli müqavilələr.',
     },
   ];
 

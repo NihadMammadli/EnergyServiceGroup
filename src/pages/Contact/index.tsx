@@ -21,7 +21,7 @@ const INITIAL: FormState = { name: '', email: '', subject: '', message: '' };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const MAP_EMBED_URL =
-  'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d739.0070349485517!2d49.73546776147718!3d40.52350718453514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDMxJzI0LjIiTiA0OcKwNDQnMDkuNCJF!5e1!3m2!1sen!2saz!4v1778764128086!5m2!1sen!2saz';
+  'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d739.0070349485517!2d49.73546776147718!3d40.52350718453514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDMxJzI0LjIiTiA0OcKwNDQnMDkuNCJF!5e0!3m2!1sen!2saz!4v1778764128086!5m2!1sen!2saz';
 
 function validate(values: FormState): Partial<Record<keyof FormState, string>> {
   const errors: Partial<Record<keyof FormState, string>> = {};
@@ -170,8 +170,8 @@ export default function ContactPage() {
               <Phone size={18} />
             </span>
             <span className={styles.directLabel}>Telefon</span>
-            <a href="tel:+994502118829" className={styles.directLink}>
-              (050) 211 88 29
+            <a href="tel:+994108881808" className={styles.directLink}>
+              (010) 888 18 08
             </a>
           </div>
 

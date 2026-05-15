@@ -1,4 +1,5 @@
 import { Compass, Goal, HardHat, Network, ShieldCheck, Wrench } from 'lucide-react';
+import logo from '@/assets/logo.jpeg';
 import { Container } from '@/components/common/Container';
 import { PageHero } from '@/components/common/PageHero';
 import { SectionTitle } from '@/components/common/SectionTitle';
@@ -40,36 +41,47 @@ export default function MelumatPage() {
       <Container className={styles.page}>
         <section className={styles.overview}>
           <Reveal direction="left" duration={800}>
-            <div className={styles.overviewText}>
-              <p>
-                Şirkətimiz SOCAR-ın "Qaz İxrac" İdarəsi, Ələt Azad İqtisadi Zonası (AFEZ /
-                SW AFEZCO), MİDA, "AS İNŞAAT" MMC, "ND COMPANY" MMC və Dövlət qurumları ilə
-                müqavilələr çərçivəsində magistral qaz kəmərlərinin yenidən qurulmasından
-                tutmuş aeroport infrastrukturuna qədər müxtəlif miqyaslı layihələr icra edir.
+            <aside className={styles.overviewLogoCol}>
+              <div className={styles.overviewLogoFrame}>
+                <img src={logo} alt="Energy Service Group logo" className={styles.overviewLogoImage} />
+              </div>
+              <h2 className={styles.overviewLogoTitle}>ENERGY SERVICE GROUP</h2>
+              <p className={styles.overviewLogoTagline}>
+                Etibarlı enerji infrastrukturu — layihədən təhvilə qədər.
               </p>
-              <p>
-                "Qazıməmməd–Qazax" magistral qaz kəmərinin yenidən qurulması, Ələt Karqo
-                Aeroportunda 11 km-lik qaz xətti və 8 km-lik içməli su xətti, Zəngilan
-                Ağalı kəndlərində yaşayış evlərinin tikintisi və qaz/su xətlərinin çəkilişi
-                tamamlanmış və davam edən əsas layihələrimiz arasındadır.
-              </p>
-            </div>
+            </aside>
           </Reveal>
           <Reveal direction="right" duration={800} delay={120}>
-            <ul className={styles.highlights}>
-              <li>
-                <ShieldCheck size={18} aria-hidden="true" />
-                <span>ISO 9001, 14001, 45001 və 10002 sertifikatlı idarəetmə sistemləri</span>
-              </li>
-              <li>
-                <Compass size={18} aria-hidden="true" />
-                <span>Layihələndirmədən təhvilə qədər tam məsuliyyət</span>
-              </li>
-              <li>
-                <Goal size={18} aria-hidden="true" />
-                <span>SOCAR, AFEZ, MİDA və dövlət qurumları ilə uzunmüddətli tərəfdaşlıq</span>
-              </li>
-            </ul>
+            <div className={styles.overviewContent}>
+              <div className={styles.overviewText}>
+                <p>
+                  Şirkətimiz SOCAR-ın "Qaz İxrac" İdarəsi, Ələt Azad İqtisadi Zonası (AFEZ /
+                  SW AFEZCO), MİDA, "AS İNŞAAT" MMC, "ND COMPANY" MMC və digər Sifarişçilər ilə
+                  müqavilələr çərçivəsində magistral qaz kəmərlərinin yenidən qurulmasından
+                  tutmuş aeroport infrastrukturuna qədər müxtəlif miqyaslı layihələr icra edir.
+                </p>
+                <p>
+                  "Qazıməmməd–Qazax" magistral qaz kəmərinin yenidən qurulması, Ələt Karqo
+                  Aeroportunda 11 km-lik qaz xətti və 8 km-lik içməli su xətti, Zəngilan
+                  Ağalı kəndlərində yaşayış evlərinin tikintisi və qaz/su xətlərinin çəkilişi
+                  tamamlanmış və davam edən əsas layihələrimiz arasındadır.
+                </p>
+              </div>
+              <ul className={styles.highlights}>
+                <li>
+                  <ShieldCheck size={18} aria-hidden="true" />
+                  <span>ISO 9001, 14001, 45001 və 10002 sertifikatlı idarəetmə sistemləri</span>
+                </li>
+                <li>
+                  <Compass size={18} aria-hidden="true" />
+                  <span>Layihələndirmədən təhvilə qədər tam məsuliyyət</span>
+                </li>
+                <li>
+                  <Goal size={18} aria-hidden="true" />
+                  <span>MİDA, SW AFEZCO və s. şirkətlər ilə uzunmüddətli tərəfdaşlıq</span>
+                </li>
+              </ul>
+            </div>
           </Reveal>
         </section>
       </Container>
@@ -119,7 +131,7 @@ export default function MelumatPage() {
           <article className={[styles.mvCard, styles.mvCardAccent].join(' ')}>
             <span className={styles.mvLabel}>Vizyon</span>
             <h3 className={styles.mvTitle}>
-              SOCAR, AFEZ və dövlət qurumlarının ilk seçilən podratçısı olmaq.
+              MİDA, SW AFEZCO və s. şirkətlərin ilk seçilən podratçısı olmaq.
             </h3>
             <p className={styles.mvBody}>
               Mühəndislik dəqiqliyi, proqnozlaşdırıla bilən təslimat və uzunmüddətli

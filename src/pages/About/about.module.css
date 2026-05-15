@@ -9,9 +9,77 @@
 
 .overview {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: 1fr 1.6fr;
   gap: var(--space-10);
   margin-bottom: var(--space-16);
+  align-items: stretch;
+}
+
+.overview > * {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.overviewLogoCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  padding: var(--space-10);
+  background: linear-gradient(
+    180deg,
+    var(--color-background-light) 0%,
+    var(--color-background-cream) 100%
+  );
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  height: 100%;
+}
+
+.overviewLogoFrame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(160px, 22vw, 220px);
+  height: clamp(160px, 22vw, 220px);
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md);
+}
+
+.overviewLogoImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.overviewLogoTitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.overviewLogoTagline {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  color: var(--color-text-gray);
+  line-height: 1.55;
+  max-width: 280px;
+  margin: 0;
+}
+
+.overviewContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
 }
 
 .overviewText {
@@ -171,7 +239,7 @@
 /* Document grid (Lisenziyalar / Sertifikatlar) */
 .docGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-6);
 }
 
@@ -257,6 +325,64 @@
   color: inherit;
 }
 
+.docPreview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-background-cream);
+  border: 1px solid var(--color-border);
+}
+
+.docPreviewFrame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Overflow past the right edge so the PDF viewer's scrollbar is clipped */
+  width: calc(100% + 24px);
+  height: 100%;
+  border: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.docPreviewOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: var(--space-3);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 55%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.docCard:hover .docPreviewOverlay {
+  opacity: 1;
+}
+
+.docPreviewBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background-color: #ffffff;
+  color: var(--color-primary-dark);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-sm);
+}
+
 .licenseHero {
   display: flex;
   align-items: center;
@@ -281,15 +407,48 @@
   flex-shrink: 0;
 }
 
+.licensePreview {
+  position: relative;
+  margin-top: var(--space-8);
+  width: 100%;
+  height: 720px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-background-cream);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.licensePreviewFrame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Overflow past the right edge so the PDF viewer's scrollbar is clipped */
+  width: calc(100% + 24px);
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
 @media (max-width: 900px) {
   .overview {
     grid-template-columns: 1fr;
     gap: var(--space-6);
   }
+  .overview > * {
+    height: auto;
+  }
+  .overviewLogoCol {
+    height: auto;
+    padding: var(--space-6);
+  }
   .expertiseGrid {
     grid-template-columns: 1fr;
   }
   .mvGrid {
+    grid-template-columns: 1fr;
+  }
+  .docGrid {
     grid-template-columns: 1fr;
   }
 }
@@ -305,5 +464,8 @@
   }
   .licenseLink {
     width: 100%;
+  }
+  .licensePreview {
+    height: 480px;
   }
 }

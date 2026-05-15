@@ -38,7 +38,6 @@ export function Footer() {
               Magistral qaz kəmərləri, polietilen şəbəkələr, içməli su və elektrik
               təchizatı xətləri, sənaye və yaşayış obyektlərinin tikinti-quraşdırma işləri.
             </p>
-            <span className={styles.brandMeta}>VÖEN: 1404206411</span>
           </div>
 
           <div className={styles.column}>
@@ -63,7 +62,7 @@ export function Footer() {
               </li>
               <li className={styles.contactItem}>
                 <Phone size={16} className={styles.contactIcon} aria-hidden="true" />
-                <a href="tel:+994502118829">(050) 211 88 29</a>
+                <a href="tel:+994108881808">(010) 888 18 08</a>
               </li>
               <li className={styles.contactItem}>
                 <Clock size={16} className={styles.contactIcon} aria-hidden="true" />
@@ -86,7 +85,6 @@ export function Footer() {
 
         <div className={styles.bottom}>
           <span>© {year} "Energy Service Group" MMC. Bütün hüquqlar qorunur.</span>
-          <span className={styles.bottomMeta}>Direktor: N.B. Abbasov</span>
         </div>
       </div>
     </footer>
