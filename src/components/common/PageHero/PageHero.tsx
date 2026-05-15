@@ -65,7 +65,7 @@ export function PageHero({
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="auto"
           aria-hidden="true"
         />
       )}

@@ -43,7 +43,6 @@ export default function GalleryPage() {
     <>
       <PageHero
         videoSrc="https://media.energyservicegroup.az/ESG%20Media/HeroCollab.mp4"
-        videoPoster="/home/ProjectsHeroBackground.jpg"
         eyebrow="Qaleriya"
         title="Layihələrdən foto və video materiallar"
         description="Magistral kəmərlər, infrastruktur tikintisi və obyekt quraşdırma işlərindən kadr görüntüləri."
