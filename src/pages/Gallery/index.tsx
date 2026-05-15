@@ -42,7 +42,11 @@ export default function GalleryPage() {
   return (
     <>
       <PageHero
-        videoSrc="https://media.energyservicegroup.az/ESG%20Media/HeroCollab.mp4"
+        videoSrc={[
+          'https://media.energyservicegroup.az/ESG%20Media/part_1.webm',
+          'https://media.energyservicegroup.az/ESG%20Media/part_2.webm',
+          'https://media.energyservicegroup.az/ESG%20Media/part_3.webm',
+        ]}
         eyebrow="Qaleriya"
         title="Layihələrdən foto və video materiallar"
         description="Magistral kəmərlər, infrastruktur tikintisi və obyekt quraşdırma işlərindən kadr görüntüləri."
