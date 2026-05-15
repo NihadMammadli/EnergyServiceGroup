@@ -37,7 +37,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <StatusIcon size={14} aria-hidden="true" />
             {statusLabel}
           </span>
-          {project.client && <span className={styles.client}>{project.client}</span>}
+          {project.client && (
+            <span className={styles.client}>Sifarişçi - {project.client}</span>
+          )}
         </div>
 
         <h3 className={styles.title}>{project.title}</h3>
