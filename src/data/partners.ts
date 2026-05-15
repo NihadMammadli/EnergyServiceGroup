@@ -49,4 +49,13 @@ export const partners: Partner[] = [
     url: 'https://www.silkwaygroup.com/',
     logo: '/partners/silkwaygroup.png',
   },
+  {
+    id: 'idp',
+    name: 'IDP',
+    initials: 'IDP',
+    description:
+      'Azərbaycan Respublikası Qaçqınların və Məcburi Köçkünlərin İşləri Üzrə Dövlət Komitəsi',
+    url: 'https://idp.gov.az/az',
+    logo: '/partners/idp.jpeg',
+  },
 ];
